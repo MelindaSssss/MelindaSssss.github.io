@@ -5,43 +5,300 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>机器学习开发步骤</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>机器学习开发步骤</h1>
-    <a href="javascript:history.back(-1)">返 回</a>
-    <div>
-      先做一个大体的介绍
-      我先在上面给出了一个垃圾短信分类的开发步骤图。我们可以看到，在得到一个机器学习问题的时候，我们首先需要对其进行抽象化。判断这是属于哪一种类型的机器学习。在机器学习中我们通常把问题分为：有监督、无监督和强化。
-      对于有监督学习，我们又可以分为：分类问题和回归问题。
-      我们的这个垃圾短息回归由于具有Y(给出了学习的结果)。所以是有监督学习。而且还是很明显的分类问题，因为
-      Y 是 T/F 的这样的离散形式。
-      在完成了问题的抽象之后，我们需要对模型进行选择。由于这是一个分类问题，那么我们需要回想一下ML的分类模型有哪些？
-      在解决了分类模型之后，我们进行特征的抽取。特征的抽取其实就是将原始的 X,Y
-      转化为数值的形式。
-      如果，我们是使用的已经提取好特征的数据集的话，就不需要进行这一步操作了，像使用
-      sklearn 所包含的数据集的时候。它对 X,Y 都已经用数值的形式进行了表示了。
-      但是，对于我们的垃圾短信分类任务，我们的输入就是一条短信息，是一个字符串型，我们就需要实现
-      string -> int
-      的转化。同样对于图像的分类任务，我们同样需要将图像进行特征的抽取。比较简单的方式就是按照图像的每个像素点对图像进行展开。或者也可以用一些高级的方法，像
-      SIFT 之类。 不同的机器学习任务它们之间主要的区别就是在特征表示的部分。
-      然后，我们就要进行模型的学习。
-      对我们确定的模型选择好数据之后，就要进行学习调参。对特征进行筛选，判断这个特征是否对模型有收益，没有就删除这个特征。
-      模型学习之后，就要对模型进行评估。
-      我们一般常用的模型评估方式就是：Acc、Recall、Precision，这三种。
-      在完成最佳模型的选择之后，就要进行模型的预测和应用。拿我们训练好的模型对未知样本进行判断，并上线使用。
-      再详细讲解 在文本分类问题中，我们主要做如下的前期工作有：
-      对于数据获取，我们最简单的就是使用人力标注(像百度众测平台)。另外的话，就是基于规则的一些方法，像比较有名的
-      Apriori 算法。
-      另外的话，就是基于其他规则的一些方法，比如淘宝的根据购物车内容推荐商品，或者在微信的看一看里面对新闻内容的人为标记是否不感兴趣等等基于业务或者其它内容的规则。
-      此外，获取数据的方法还有通过向数据提供服务商进行申请，比如向维基百科申请百科词条数据。另外，我们可以通过数据爬虫的方式来从网站或者其它平台来爬取我们想要的数据。
-      获取数据的方式是多种多样的，我们不要太局限于现有的一些方法。当然，也不可以为了获取数据而做一些非法的事情，像数据盗贼这类的事情。
-      后续，就需要进行模型的选择和调参。对于参数可以分为普通参数和超参数，普通参数我们可以通过对模型的训练直接获得，而超参数则需要我们手工进行调整。
-      对于 grid search 网格搜索，我们可以理解为如下的样子。如果有两个参数 a 和
-      b，它们的取值范围都是 0 ~ 1 。那么就可以将它们的取值范围区分均等的 n
-      份，比如在下面我分成了 4
-      份。然后按照每一组取值（网格上的点）对相应的超参数 a 和 b
-      进行赋值，然后比较每一组取值来获得表现最佳的那一组超参数取值。
-      最后就是模型的融合、评估和上线。
-    </div>
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>机器学习开发步骤</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <ul class="nav align-items-center">
+              <li class="nav-item ml-4">
+                <a
+                  href="javascript:history.back(-1)"
+                  class="btn btn-sm btn-primary"
+                >
+                  返 回
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <h3 id="summary">先大体介绍</h3>
+                <div style="text-align: center;">
+                  <img src="../images/1.png" alt="垃圾短信图示" />
+                </div>
+                <p style="text-indent: 32px;">
+                  我先在上面给出了一个垃圾短信分类的开发步骤图。我们可以看到，在得到一个机器学习问题的时候，我们首先需要对其进行抽象化。判断这是属于哪一种类型的机器学习。在机器学习中我们通常把问题分为：有监督、无监督和强化。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/2.png"
+                    alt="图示"
+                  />
+                </div>
+
+                <p style="text-indent: 32px;">
+                  对于有监督学习，我们又可以分为：分类问题和回归问题。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/3.png"
+                    alt="回归问题"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  我们的这个垃圾短息回归由于具有Y(给出了学习的结果)。所以是有监督学习。而且还是很明显的分类问题，因为
+                  Y 是 T/F 的这样的离散形式。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/4.png"
+                    alt="监督问题"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  在完成了问题的抽象之后，我们需要对模型进行选择。由于这是一个分类问题，那么我们需要回想一下ML的分类模型有哪些？
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/5.png"
+                    alt="ML的分类模型"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  在解决了分类模型之后，我们进行特征的抽取。特征的抽取其实就是将原始的
+                  X,Y 转化为数值的形式。
+                  如果，我们是使用的已经提取好特征的数据集的话，就不需要进行这一步操作了，像使用
+                  sklearn 所包含的数据集的时候。它对 X,Y
+                  都已经用数值的形式进行了表示了。
+                  但是，对于我们的垃圾短信分类任务，我们的输入就是一条短信息，是一个字符串型，我们就需要实现
+                  string -> int
+                  的转化。同样对于图像的分类任务，我们同样需要将图像进行特征的抽取。比较简单的方式就是按照图像的每个像素点对图像进行展开。或者也可以用一些高级的方法，像
+                  SIFT 之类。
+                  不同的机器学习任务它们之间主要的区别就是在特征表示的部分。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/6.png"
+                    alt="特征表示的部分"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  然后，我们就要进行模型的学习。
+                  对我们确定的模型选择好数据之后，就要进行学习调参。对特征进行筛选，判断这个特征是否对模型有收益，没有就删除这个特征。
+                </p>
+                <p style="text-indent: 32px;">
+                  模型学习之后，就要对模型进行评估。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/7.png"
+                    alt="模型的学习"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  我们一般常用的模型评估方式就是：Acc、Recall、Precision，这三种。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/8.png"
+                    alt="评估要点"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  在完成最佳模型的选择之后，就要进行模型的预测和应用。拿我们训练好的模型对未知样本进行判断，并上线使用。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/9.png"
+                    alt="模型应用"
+                  />
+                </div>
+
+                <h3 id="detail">再详细讲解</h3>
+
+                <p style="text-indent: 32px;">
+                  在
+                  <strong>文本分类</strong>
+                  问题中，我们主要做如下的前期工作有：
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/10.png"
+                    alt="文本分类的前期工作"
+                  />
+                </div>
+
+                <p style="text-indent: 32px;">
+                  对于
+                  <strong>数据获取</strong>
+                  ，我们最简单的就是使用
+                  <strong>人力标注</strong>
+                  (像百度众测平台)。另外的话，就是基于规则的一些方法，像比较有名的
+                  Apriori 算法。
+                  另外的话，就是基于其他规则的一些方法，比如淘宝的根据购物车内容推荐商品，或者在微信的看一看里面对新闻内容的人为标记是否不感兴趣等等基于业务或者其它内容的规则。
+                  此外，获取数据的方法还有通过向数据提供服务商进行申请，比如向维基百科申请百科词条数据。另外，我们可以通过
+                  <strong>数据爬虫</strong>
+                  的方式来从网站或者其它平台来爬取我们想要的数据。
+                  获取数据的方式是多种多样的，我们不要太局限于现有的一些方法。当然，也不可以为了获取数据而做一些非法的事情，像数据盗贼这类的事情。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/11.png"
+                    alt="获取数据的多种方式"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  后续，就需要进行模型的选择和调参。对于参数可以分为普通参数和超参数，普通参数我们可以通过对模型的训练直接获得，而超参数则需要我们手工进行调整。
+                </p>
+                <p style="text-indent: 32px;">
+                  对于 grid search
+                  网格搜索，我们可以理解为如下的样子。如果有两个参数 a 和
+                  b，它们的取值范围都是 0 ~ 1
+                  。那么就可以将它们的取值范围区分均等的 n
+                  份，比如在下面我分成了 4
+                  份。然后按照每一组取值（网格上的点）对相应的超参数 a 和 b
+                  进行赋值，然后比较每一组取值来获得表现最佳的那一组超参数取值。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/12.png"
+                    alt="网格搜索相关描述"
+                  />
+                </div>
+                <p style="text-indent: 32px;">
+                  最后就是模型的融合、评估和上线。
+                </p>
+                <div style="text-align: center;">
+                  <img
+                    style="text-align: center;"
+                    src="../images/13.png"
+                    alt="模型上线"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-h3">
+                      <a href="#summary">先大体介绍</a>
+                    </li>
+                    <li class="toc-entry toc-h3">
+                      <a href="#detail">再详细讲解</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer bg-white">
+          <div class="container">
+            <div class="row align-items-center py-3 border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2022
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../assets/js/theme.js"></script>
   </body>
 </html>
