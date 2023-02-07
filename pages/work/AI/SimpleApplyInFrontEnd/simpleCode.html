@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>机器学习开发步骤</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>深度学习在前端的简单应用代码示例</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <ul class="nav align-items-center">
+              <li class="nav-item ml-4">
+                <a
+                  href="javascript:history.back(-1)"
+                  class="btn btn-sm btn-primary"
+                >
+                  返 回
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <h3 id="summary">完整应用代码</h3>
+                <pre><code>
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import Model, layers, optimizers
+
+
+# （1）数据获取
+def get_data(height, width, batchsz):
+# 获取训练集
+filepath1 = './dataset/train'
+train_ds = tf.keras.preprocessing.image_dataset_from_directory(
+filepath1,  # 指定训练集数据路径
+label_mode='categorical',  # 导入的目标数据，进行onehot编码
+image_size=(height, width),  # 对图像resize
+batch_size=batchsz,  # 每次迭代取 batchsz 个数据
+)
+
+# 获取验证集数据
+filepath2 = './dataset/val'
+val_ds = tf.keras.preprocessing.image_dataset_from_directory(
+filepath2,  # 指定训练集数据路径
+label_mode='categorical',
+image_size=(height, width),  # 对图像resize
+batch_size=batchsz,  # 每次迭代取 batchsz 个数据
+)
+
+# 获取测试集集数据
+filepath3 = './dataset/test'
+test_ds = tf.keras.preprocessing.image_dataset_from_directory(
+filepath3,  # 指定训练集数据路径
+label_mode='int',  # 不进行onehot编码
+image_size=(height, width),  # 对图像resize
+batch_size=batchsz,  # 每次迭代取 batchsz 个数据
+)
+
+return(train_ds, val_ds, test_ds)
+
+
+# 数据读取函数，返回训练集、验证集、测试集
+train_ds, val_ds, test_ds = get_data(128, 128, 32)
+# train_ds, val_ds, test_ds = get_data(128, 128, 32)
+
+# 查看分类名称
+class_names = train_ds.class_names
+print('分类名：', class_names)
+
+# 查看数据信息
+sample = next(iter(train_ds))
+print('x_batch.shape:51', sample[0].shape, 'y_batch.shape:', sample[1].shape)
+# x_batch.shape: (32, 128, 128, 3) y_batch.shape: (32, 4)
+# x_batch.shape:51 (128, 128, 128, 3) y_batch.shape: (128, 12)
+
+# 显示图像
+for i in range(15):
+plt.subplot(3, 5, i+1)
+plt.imshow(sample[0][i]/255.0)
+plt.xticks([])
+plt.yticks([])
+plt.show()
+
+# （2）数据预处理
+
+
+def processing(x, y):
+print("原始的xy", x, y)
+# 图像中的每个像素值映射到[-1,1]之间
+x = 2 * tf.cast(x, dtype=tf.float32) / 255.0 - 1
+y = tf.cast(y, dtype=tf.int32)
+# 返回处理后的结果
+
+print("每一张图片处理的数据结果", (x, y))
+return (x, y)
+
+
+# 构建数据集
+
+# 原因分析
+
+# 当开启预处理下沉时，NPU采用预处理与前后向运算并行的方式工作。
+# 此时如果预处理过程对数据进行了shuffle且shuffle数量过大，
+# 则可能在前向计算任务下发很长时间后，预处理仍然无法输出有效数据，导致前向计算任务超时。
+
+# 以shuffle数量设置为10000引发的任务超时为例，
+# 通过上述日志信息可以看到，在前向计算任务超时时，
+# buffer仍未获取到足够的数据（仅获取到了6232个数据），从而发生task超时的错误打印。
+
+# 解决方案
+
+# 开发者可以采取以下策略解决：
+
+# 可以根据超时时间内实际完成的shuffle数量，适当减少shuffle的数量。
+# 例如本例中实际完成的shuffle数量为6232个数据，我们配置为5000：
+# 也可以关闭数据预处理下沉开关，enable_data_pre_proc=False，
+# 从而保证预处理与前后向运算串行，但是可能会有性能上的损失。
+
+train_ds = train_ds.map(processing).shuffle(1000)
+val_ds = val_ds.map(processing)  # 验证集和测试集不需要打乱顺序
+test_ds = test_ds.map(processing)
+
+# 查看数据信息
+sample = next(iter(train_ds))
+print('x_batch.shape:80', sample[0].shape, 'y_batch.shape:', sample[1].shape)
+# x_batch.shape: (32, 128, 128, 3) y_batch.shape: (32, 4)
+
+
+# 迁移学习
+pre_model = tf.keras.applications.mobilenet_v2.MobileNetV2(
+# 不包括全连接层，导入预训练权重，自定义输入图片大小
+input_shape=[128, 128, 3], include_top=False, weights='imagenet')
+
+# 冻住特征提取层
+for layer in pre_model.layers:
+layer.trainable = False
+
+# 前向传播，看网络输出什么
+imgs, labels = next(iter(train_ds))  # img的shape为[32,224,224,3]
+outputs = pre_model(imgs)
+print('outputs.shape:', outputs.shape)
+# # [32,224,224,3] ==> [32,7,7,1280]
+
+
+# 将所有层解冻
+pre_model.trainable = True
+# 查看一共有多少层
+print('numbers of layers:', len(pre_model.layers))
+# numbers of layers: 154
+
+# 指定冻结120层之前的层数
+find_tune_at = 120
+
+# 冻结到第120层
+for layer in pre_model.layers[:find_tune_at]:
+  layer.trainable = False
+  
+  # 自定义顶层
+  # 将特征提取层的输出结果压平后再传入全连接层
+  x = layers.Flatten()(pre_model.output)
+  # 加入全连接层
+  x = layers.Dense(1024, activation='relu')(x)
+  x = layers.Dropout(0.4)(x)  # 0.4的几率杀死神经元
+  # 输出层，输出图像属于10分类的概率
+  x = layers.Dense(478, activation='softmax')(x)
+  
+  
+  # 模型构建
+  model = Model(pre_model.input, x)  # 给出输入层和输出层
+  
+  
+  # 查看网络参数，Trainable params: 34,038,336
+  pre_model.summary()
+  # （6）网络配置，调小学习率避免过拟合
+  opt = optimizers.Adam(learning_rate=1e-7)
+  
+  # 编译
+  model.compile(optimizer=opt,  # 学习率
+                loss='categorical_crossentropy',  # 对onehot后的y，计算交叉熵损失
+                metrics=['accuracy'])  # 评价指标
+  
+  # 训练，在上一次训练的基础上继续训练40次
+  history_fine = model.fit(train_ds,  # 训练集
+                            validation_data=val_ds,  # 验证集
+                            epochs=40,  # 迭代次数
+                          )
+  
+  # 模型的保存
+  
+  
+  model.save('./20220805/20220805_model')
+  model.save('./20220805/h5_20220805_model.h5')
+  
+  
+  # （7）网络评估
+  # 准确率
+  train_acc = history_fine.history['accuracy']
+  test_acc = history_fine.history['val_accuracy']
+  # 损失
+  train_loss = history_fine.history['loss']
+  test_loss = history_fine.history['val_loss']
+  # 绘图
+  # 准确率曲线
+  plt.figure(figsize=(10, 5))
+  plt.subplot(1, 2, 1)
+  plt.plot(train_acc, label='train_acc')
+  plt.plot(test_acc, label='test_acc')
+  plt.title('accuracy')
+  plt.legend()  # 显示图例label
+  # 损失曲线
+  plt.subplot(1, 2, 2)
+  plt.plot(train_loss, label='train_loss')
+  plt.plot(test_loss, label='test_loss')
+  plt.title('loss')
+  plt.legend()
+  plt.show()
+  
+  
+  # （10）预测
+  test_true = []  # 存放真实值
+  test_pred = []  # 存放预测值
+  
+  # 从测试集中取出一个batch用于预测
+  for imgs, labels in test_ds:  # label没有经过onehot编码
+      # 每次取出一组图像和标签
+      for img, label in zip(imgs, labels):
+          # 给图像增加一个维度
+          image_array = tf.expand_dims(img, 0)
+          # 预测某一张图片的类别
+          prediction = model.predict(image_array)
+          
+          # 找到预测结果中元素值最大的下标，图像属于某一个类别概率最大的值对应的下标
+          test_pred.append(class_names[np.argmax(prediction)])
+          test_true.append(class_names[label])  # 真实值的标签名
+          
+          # 展示结果
+          print('真实值：', test_true)
+          print('预测值：', test_pred)
+                  
+                </code></pre>
+
+                <h3 id="detail">单个测试代码</h3>
+                <pre><code>
+                  
+import numpy as np
+import tensorflow as tf
+
+# returns a compiled model
+# identical to the previous one
+# 加载存盘的模型及参数
+
+
+IMAGE_SIZE = 128
+img_path = './dataset/test/028/截图0265testrandomBg0116testbe.png'
+
+
+# 取一个图片，预测一下
+# image_model = tf.keras.models.load_model('./20220805/h5_20220805_model.h5')
+
+image_model = tf.keras.models.load_model('./20220805/20220805_model')
+image_model.summary()  # 输出查看模型结构信息
+a_img = tf.keras.utils.load_img(
+    img_path, target_size=(IMAGE_SIZE, IMAGE_SIZE))
+img_array = tf.keras.utils.img_to_array(a_img)
+
+test_img = img_array/255  # 此处还需要将0-255转化为0-1
+predictData = tf.expand_dims(test_img, 0)
+predictions = image_model.predict(predictData)
+a_iname = np.argmax(predictions)
+print(predictions, a_iname)
+
+                </code></pre>
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-h3">
+                      <a href="#summary">完整应用代码</a>
+                    </li>
+                    <li class="toc-entry toc-h3">
+                      <a href="#detail">单个测试代码</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer bg-white">
+          <div class="container">
+            <div class="row align-items-center py-3 border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2022
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../../assets/js/theme.js"></script>
+  </body>
+</html>
