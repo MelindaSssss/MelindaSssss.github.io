@@ -66,6 +66,20 @@
             <div class="row">
               <div class="col-lg-9">
                 <h3 id="summary">完整应用代码</h3>
+
+                <p>整个训练是利用python和tensorflow完成的</p>
+                <div style="color: red;">
+                  <p>
+                    ./dataset/train 是经过数据增强后的训练集数据
+                  </p>
+                  <p>
+                    ./dataset/test 是经过数据增强后的测试集数据
+                  </p>
+                  <p>
+                    ./dataset/val 是经过数据增强后的验证集数据
+                  </p>
+                </div>
+
                 <pre><code>
 import matplotlib.pyplot as plt
 import numpy as np
@@ -286,6 +300,7 @@ for layer in pre_model.layers[:find_tune_at]:
                 </code></pre>
 
                 <h3 id="detail">单个测试代码</h3>
+
                 <pre><code>
                   
 import numpy as np
