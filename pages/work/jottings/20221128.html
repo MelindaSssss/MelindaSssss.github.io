@@ -46,7 +46,7 @@
       <section class="content">
         <div class="header">
           <div class="header-brand d-xl">
-            <h1>20220914</h1>
+            <h1>20221128</h1>
           </div>
           <div class="header-nav ml-auto">
             <ul class="nav align-items-center">
@@ -65,43 +65,29 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-9">
-                
-                <h3 id="summary">不升级，同时使用两个版本BizCharts</h3>
-                <div style="text-indent: 32px;">
-                  <p>
-                    如果项目页面之间是隔离的，可以通过npm alias
-                    使用多个版本的BizCharts 以使用新版本带来的新功能。
-                    单页应用不支持，本质是一个页面，不支持多个版本同时使用。
-                  </p>
-                <pre>
-                  <code>
-                    npm install <alias>@npm:<name>:
-                    // Examples:
-                    npm install my-react@npm:react
-                    npm install jquery2@npm:jquery@2
-                    npm install jquery3@npm:jquery@3
-                    npm install bizcharts@npm:bizcharts@3
-                    npm install bizcharts4@npm:bizcharts@4</code>
-                </pre>
-
-                  <p>在项目使用</p>
-                  <pre><code>
-                    import { Chart } from 'bizcharts4';  
-                  </code></pre>
-                  <p>
-                    关于 npm alias: 在自定义别名下安装软件包。
-                    允许并排使用多个版本的同名程序包，对于其他名称较长的程序包，则可以使用更方便的导入名称，并且可以使用git
-                    fork替换或派生的npm程序包作为替换。
-                    别名仅在您的项目上起作用，并且不会在传递性依赖项中重命名程序包。
-                    别名应遵循validate-npm-package-name中指定的命名约定。
-                  </p>
+                <h3 id="summary">对象交换</h3>
+                <p>第一次这样写对象交换</p>
+                <div>
+                  <pre>
+                    <code>
+                      const result = cloneDeep(arr);
+                      edges.forEach((v, i) => {
+                        const { target } = v;
+                        const ci = result.findIndex((c) => c.fieldname === target);
+                        if (ci !== i) {
+                          // 如果不是在目标位置就交换位置
+                          result.splice(i, 0, ...result.splice(ci, 1));
+                        }
+                      });
+                    </code>
+                  </pre>
                 </div>
               </div>
               <div class="col-lg-3 d-none d-lg-inline-block">
                 <div class="sidebar-sticky" data-stick-in-parent="true">
                   <ul class="section-nav">
                     <li class="toc-entry toc-h3">
-                      <a href="#summary">两个版本的npm包共存</a>
+                      <a href="#summary">对象交换</a>
                     </li>
                   </ul>
                 </div>
