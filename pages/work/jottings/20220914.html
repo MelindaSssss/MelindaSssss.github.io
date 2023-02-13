@@ -73,21 +73,30 @@
                     使用多个版本的BizCharts 以使用新版本带来的新功能。
                     单页应用不支持，本质是一个页面，不支持多个版本同时使用。
                   </p>
-                <pre>
-                  <code>
-                    npm install <alias>@npm:<name>:
-                    // Examples:
-                    npm install my-react@npm:react
-                    npm install jquery2@npm:jquery@2
-                    npm install jquery3@npm:jquery@3
-                    npm install bizcharts@npm:bizcharts@3
-                    npm install bizcharts4@npm:bizcharts@4</code>
-                </pre>
-
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        npm install <alias>@npm:<name>:
+                        // Examples:
+                        npm install my-react@npm:react
+                        npm install jquery2@npm:jquery@2
+                        npm install jquery3@npm:jquery@3
+                        npm install bizcharts@npm:bizcharts@3
+                        npm install bizcharts4@npm:bizcharts@4
+                      </code>
+                    </pre>
+    
+                  </div>
+              
                   <p>在项目使用</p>
-                  <pre><code>
-                    import { Chart } from 'bizcharts4';  
-                  </code></pre>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                      import { Chart } from 'bizcharts4';  
+                    </code>
+                  </pre>
+                  </div>
+                 
                   <p>
                     关于 npm alias: 在自定义别名下安装软件包。
                     允许并排使用多个版本的同名程序包，对于其他名称较长的程序包，则可以使用更方便的导入名称，并且可以使用git

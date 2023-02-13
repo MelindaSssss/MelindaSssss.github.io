@@ -46,7 +46,7 @@
       <section class="content">
         <div class="header">
           <div class="header-brand d-xl">
-            <h1>20230210</h1>
+            <h1>20221212</h1>
           </div>
           <div class="header-nav ml-auto">
             <ul class="nav align-items-center">
@@ -65,14 +65,72 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-9">
-                <h3 id="summary">先大体介绍</h3>
-                <div>内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+                <h3 id="summary">Uint8ClampedArray</h3>
+                <div style="text-indent: 32px;">
+                  <p>
+                    <strong>Uint8ClampedArray（8 位无符号整型固定数组）</strong>
+                    类型化数组表示一个由值固定在 0-255 区间的 8
+                    位无符号整型组成的数组；如果你指定一个在 [0,255]
+                    区间外的值，它将被替换为 0 或
+                    255；如果你指定一个非整数，那么它将被设置为最接近它的整数。（数组）内容被初始化为
+                    0。一旦（数组）被创建，你可以使用对象的方法引用数组里的元素，或使用标准的数组索引语法（即使用方括号标记）。
+                  </p>
+                  <p>
+                    语法：
+                  </p>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        new Uint8ClampedArray(length);
+                        new Uint8ClampedArray(typedArray);
+                        new Uint8ClampedArray(object);
+                        new Uint8ClampedArray(buffer [, byteOffset [, length]]);
+                        
+                      </code>
+                    </pre>
+                  </div>
+                  <p>
+                    写
+                    <a
+                      href="https://github.com/MelindaSssss/particle-canvas"
+                      target="_blank"
+                    >
+                      粒子动画
+                    </a>
+                    时取像素点信息遇到，canvas的一个方法返回值ImageData对象里的data属性即为Uint8ClampedArray
+                    的一维数组
+                  </p>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        /* 
+                        ctx.getImageData(sx, sy, sw, sh);
+                        参数
+                        sx：将要被提取的图像数据矩形区域的左上角 x 坐标。
+                        sy：将要被提取的图像数据矩形区域的左上角 y 坐标。
+                        sw：将要被提取的图像数据矩形区域的宽度。
+                        sh：将要被提取的图像数据矩形区域的高度。
+                        返回值： 返回的是一个ImageData对象，该对象包含了三个只读属性：
+                        属性	含义
+                        ImageData.width	ImageData的宽度，用像素表示
+                        ImageData.height	ImageData的高度，用像素表示
+                        ImageData.data	  类型为 Uint8ClampedArray 的一维数组，
+                                          每四个数组元素代表了一个像素点的RGBA信息，每个元素数值介于0~255
+                        */
+                      const imgData = tmp_ctx?.getImageData(0, 0, imgW, imgH).data // 获取像素点数据
+                      </code>
+                    </pre>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="./images/unit8.png" alt="" />
+                  </div>
+                </div>
               </div>
               <div class="col-lg-3 d-none d-lg-inline-block">
                 <div class="sidebar-sticky" data-stick-in-parent="true">
                   <ul class="section-nav">
                     <li class="toc-entry toc-h3">
-                      <a href="#summary">先大体介绍</a>
+                      <a href="#summary">Uint8ClampedArray</a>
                     </li>
                   </ul>
                 </div>
