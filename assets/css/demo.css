@@ -425,3 +425,76 @@
 .special-code-style pre {
   color: inherit;
 }
+
+/* 滚动条样式调整 */
+
+/* 工作用绿色  */
+.special-wrap-work {
+  overflow-y: auto;
+}
+.special-wrap-work::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.special-wrap-work::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  /* background-color: #00c792; */
+  background-color: rgb(135, 235, 177);
+  /* background-color: skyblue; */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.special-wrap-work::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
+/* 两端的按钮 不要其实更好看 */
+/* .special-wrap-work::-webkit-scrollbar-button {
+  background: yellow;
+  border-radius: 4px;
+} */
+
+/* 生活用红色 */
+.special-wrap-life {
+  overflow-y: auto;
+  /* border: 1px solid red; */
+}
+.special-wrap-life::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.special-wrap-life::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background-color: pink;
+  /* background-color: #ff0033; */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.special-wrap-life::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
