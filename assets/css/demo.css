@@ -441,6 +441,12 @@
 /* 工作用绿色  */
 .special-wrap-work {
   overflow-y: auto;
+  background: url('../../pages/work/background.png') repeat 0 0;
+}
+
+.special-wrap-work .footer,
+.special-wrap-life .footer {
+  background: transparent;
 }
 .special-wrap-work::-webkit-scrollbar {
   width: 10px;
@@ -479,7 +485,8 @@
 /* 生活用红色 */
 .special-wrap-life {
   overflow-y: auto;
-  /* border: 1px solid red; */
+  background: url('../../pages/life/dark.jpg') no-repeat 0 / cover;
+  color: #fff;
 }
 .special-wrap-life::-webkit-scrollbar {
   width: 10px;
@@ -577,4 +584,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* 工作主页 */
+/* .work-homepage {
+  background: url('../../pages/work/background.png') no-repeat 5px 5px;
+} */
+
+.special-wrap-work .sidebar,
+.special-wrap-life .sidebar {
+  background: transparent;
+  border: none;
+}
+
+/* 自治更粗的border */
+
+.wider-border-bottom {
+  border-bottom: 6px solid #e9ecef !important;
+}
+.wider-border-top {
+  border-top: 6px solid #e9ecef !important;
+}
+.wider-border-left {
+  border-left: 6px solid #e9ecef !important;
+}
+.wider-border-right {
+  border-right: 6px solid #e9ecef !important;
+}
+
+/* 生活模块 字颜色 统一为白色 */
+.need-white-font {
+  color: #fff !important;
 }
