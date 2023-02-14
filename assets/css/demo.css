@@ -415,6 +415,11 @@
   text-decoration: none;
 }
 
+.toc-entry-green a:hover {
+  color: #00c759 !important;
+  text-decoration: none;
+}
+
 /* 代码调整 */
 .need-text-indent {
   text-indent: 32px;
