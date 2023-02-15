@@ -53,6 +53,14 @@
     margin-bottom: 1rem;
   }
 }
+
+/* 工作类 颜色变量   */
+
+:root {
+  --work-main-color: #fd8c00;
+  --life-main-color: rgb(48, 84, 188);
+}
+
 .header {
   width: 100%;
   height: 72px;
@@ -63,7 +71,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  background: #fff;
+  background: transparent;
   border-bottom: 1px solid #e9ecef;
 }
 @media (max-width: 1199px) {
@@ -242,6 +250,11 @@
 .navigation .navigation-link.active {
   color: #288cff;
 }
+
+.from-work-navigation .navigation-link:hover,
+.from-work-navigation .navigation-link.active {
+  color: var(--work-main-color) !important;
+}
 .scrollbar-inner {
   height: 100%;
 }
@@ -415,8 +428,8 @@
   text-decoration: none;
 }
 
-.toc-entry-green a:hover {
-  color: #00c759 !important;
+.toc-entry-orange a:hover {
+  color: var(--work-main-color) !important;
   text-decoration: none;
 }
 
@@ -427,9 +440,10 @@
 
 .special-code-style {
   background: #262626;
-  color: #8bc56f !important;
+  color: var(--work-main-color) !important;
   border-radius: 16px;
   line-height: 24px;
+  font-size: 16px;
 }
 
 .special-code-style pre {
@@ -456,7 +470,7 @@
   /*滚动条里面小方块*/
   border-radius: 10px;
   /* background-color: #00c792; */
-  background-color: rgb(135, 235, 177);
+  background-color: rgb(183, 183, 184);
   /* background-color: skyblue; */
   background-image: -webkit-linear-gradient(
     45deg,
@@ -533,34 +547,37 @@
   position: relative;
   width: 200px;
   height: 60px;
-  border: 1px solid rgb(143, 238, 230);
+  border: 2px solid #262626;
+  /* border: 1px solid rgb(143, 238, 230); */
   border-radius: 25px;
   text-align: center;
   line-height: 60px;
   z-index: 1;
   overflow: hidden;
-  color: rgb(145 243 225);
+  color: #fff;
+  /* color: rgb(145 243 225); */
   font-size: 18px;
 }
 
 /* a标签 hover 不变色 */
 .colorful-button:hover {
-  color: rgb(145 243 225);
+  color: #fff;
 }
 
 /* 写一个旋转的框框 添加一个比按钮1/4面积稍微大一点的before伪元素 */
 .colorful-button::before {
   position: absolute;
-  top: 30px;
+  top: 20px;
   width: 50%;
   height: 50%;
   content: ' ';
   /* 旋转体的宽高决定了环绕的样式 */
-  width: 120px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   /* 202 24 92 */
   /* background-color: rgb(202 24 92); */
-  background-color: rgb(143, 238, 230);
+  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(143, 238, 230); */
   z-index: -1;
   transform-origin: left top;
   /* 调用旋转动画 2s一个周期 无限循环 匀速 */
@@ -569,13 +586,13 @@
 
 .colorful-button::after {
   position: absolute;
-  left: 5px;
-  top: 5px;
+  left: 3px;
+  top: 3px;
   content: ' ';
   width: 190px;
   height: 50px;
   /* 修改按钮颜色 可以在这里修改 */
-  background: #fff;
+  background: #262626;
   border-radius: 19px;
   z-index: -1;
 }
