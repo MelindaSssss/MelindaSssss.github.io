@@ -155,6 +155,9 @@
   font-weight: normal;
   margin: 0;
 }
+.life-header > h1 {
+  color: #fff;
+}
 .header-brand > h1 > a {
   color: #999;
 }
@@ -423,13 +426,19 @@
   text-decoration: none;
 }
 
-.toc-entry-pink a:hover {
-  color: pink !important;
+.toc-entry-orange a:hover {
+  color: var(--work-main-color) !important;
   text-decoration: none;
 }
 
-.toc-entry-orange a:hover {
-  color: var(--work-main-color) !important;
+/* 生活页面 主白色字体 */
+.toc-entry-white a {
+  display: block;
+  padding: 0.125rem 1.5rem;
+  color: #fff !important;
+}
+.toc-entry-white a:hover {
+  color: var(--life-main-color) !important;
   text-decoration: none;
 }
 
@@ -601,6 +610,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.graceful-button {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border: 2px solid #fff;
+  /* border: 1px solid rgb(143, 238, 230); */
+  border-radius: 25px;
+  text-align: center;
+  line-height: 60px;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  /* color: rgb(145 243 225); */
+  font-size: 18px;
+}
+
+/* a标签 hover 不变色 */
+.graceful-button:hover {
+  color: #fff;
+}
+
+/* 写一个旋转的框框 添加一个比按钮1/4面积稍微大一点的before伪元素 */
+.graceful-button::before {
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  height: 50%;
+  content: ' ';
+  /* 旋转体的宽高决定了环绕的样式 */
+  width: 140px;
+  height: 140px;
+  /* 202 24 92 */
+  /* background-color: rgb(202 24 92); */
+  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(143, 238, 230); */
+  z-index: -1;
+  transform-origin: left top;
+  /* 调用旋转动画 2s一个周期 无限循环 匀速 */
+  animation: rotate 2s infinite linear;
+}
+
+.graceful-button::after {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  content: ' ';
+  width: 190px;
+  height: 50px;
+  /* 修改按钮颜色 可以在这里修改 */
+  background: rgb(49, 85, 189);
+  border-radius: 19px;
+  z-index: -1;
 }
 
 /* 工作主页 */
