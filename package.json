@@ -1,6 +1,6 @@
 {
   "homepage": "./",
-  "name": "my-app",
+  "name": "my-blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
