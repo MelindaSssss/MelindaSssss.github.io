@@ -1,0 +1,777 @@
+/* 工作类 颜色变量   */
+
+:root {
+  --work-main-color: #fd8c00;
+  --life-main-color: rgb(0, 115, 255);
+}
+
+@media (max-width: 767px) {
+  .btn-container {
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 991px) {
+  .btn-container > .btn,
+  .btn-container > .btn-group {
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .btn-container > .btn,
+  .btn-container > .btn-group {
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .content:not(.content--boxed):not(.content--full) {
+    padding: 0 0 0 240px;
+  }
+}
+@media (min-width: 576px) and (max-width: 1199px) {
+  .content:not(.content--boxed):not(.content--full) {
+    padding: 102px 30px 0;
+  }
+}
+@media (max-width: 575px) {
+  .content:not(.content--boxed):not(.content--full) {
+    padding: 87px 15px 0;
+  }
+}
+@media (min-width: 576px) {
+  .content--full {
+    padding: 102px 30px 0;
+  }
+}
+@media (max-width: 767px) {
+  .content--full {
+    padding: 87px 15px 0;
+  }
+}
+.content-inner {
+  margin: auto;
+  padding: 30px 15px;
+}
+.content-inner .example {
+  margin-bottom: 5rem;
+}
+@media (max-width: 767px) {
+  .content-inner .example .btn {
+    margin-bottom: 1rem;
+  }
+}
+
+.header {
+  width: 100%;
+  height: 72px;
+  color: #ffffff;
+  padding: 0 30px 0 2rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background: transparent;
+  border-bottom: 1px solid #e9ecef;
+}
+@media (max-width: 1199px) {
+  .header {
+    position: fixed;
+  }
+}
+@media (max-width: 575px) {
+  .header {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.header::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+.header .body-backdrop {
+  position: absolute;
+}
+.navigation-trigger {
+  float: left;
+  padding: 2rem 2rem 2rem 2.4rem;
+  margin-left: -2rem;
+}
+.navigation-trigger:hover {
+  cursor: pointer;
+}
+.navigation-trigger.toggled .navigation-trigger-inner {
+  transform: rotate(180deg);
+}
+.navigation-trigger.toggled .navigation-trigger-inner:before {
+  transform: scale(1);
+}
+.navigation-trigger.toggled .navigation-trigger-line:first-child {
+  width: 12px;
+  transform: translateX(8px) translateY(1px) rotate(45deg);
+}
+.navigation-trigger.toggled .navigation-trigger-line:last-child {
+  width: 11px;
+  transform: translateX(8px) translateY(-1px) rotate(-45deg);
+}
+.navigation-trigger-inner,
+.navigation-trigger-line {
+  width: 18px;
+  transition: all 300ms;
+}
+.navigation-trigger-inner {
+  position: relative;
+}
+.navigation-trigger-inner:before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: -11px;
+  top: -14px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  transition: all 300ms;
+  transform: scale(0);
+}
+.navigation-trigger-line {
+  height: 2px;
+  background-color: #333;
+  display: block;
+  position: relative;
+}
+.navigation-trigger-line:not(:last-child) {
+  margin-bottom: 3px;
+}
+@media (min-width: 1200px) {
+  .header-brand {
+    min-width: calc(270px - 2rem);
+  }
+}
+.header-brand > h1 {
+  line-height: 100%;
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin: 0;
+}
+.life-header > h1 {
+  color: #fff;
+}
+.header-brand > h1 > a {
+  color: #999;
+}
+.header-nav .nav-link {
+  padding: 0 1rem;
+  font-size: 0.765625rem;
+  color: #adb5bd;
+  transition: background-color 300ms;
+}
+.header-nav .nav-link:hover {
+  color: #343a40;
+}
+.sidebar {
+  width: 240px;
+  position: fixed;
+  left: 0;
+  padding: 0 0.5rem 0.5rem 1.5rem;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1050;
+  background-color: #fff;
+  border-right: 1px solid #e9ecef;
+}
+@media (max-width: 1199px) {
+  .sidebar {
+    transition: transform 300ms, opacity 300ms;
+  }
+  .sidebar:not(.toggled) {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  .sidebar.toggled {
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.08);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.sidebar-brand {
+  height: 72px;
+  padding: 1rem 0;
+}
+.sidebar-brand > h1 {
+  transform: translateY(50%);
+  font-size: 1.09375rem;
+  font-weight: normal;
+  margin: 0;
+}
+.sidebar-brand > h1 > a {
+  color: #343a40;
+}
+.sidebar .scrollbar-inner > .scroll-element {
+  margin-right: 0;
+}
+.sidebar--hidden {
+  background-color: #ffffff;
+  transition: transform 300ms, opacity 300ms;
+}
+.sidebar--hidden:not(.toggled) {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.sidebar--hidden.toggled {
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.08);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.navigation {
+  list-style: none;
+  padding: 0;
+  padding-bottom: 4rem;
+}
+.navigation .navigation-title {
+  color: #adb5bd;
+  font-weight: 600;
+  margin: 0.875rem 0 0;
+  padding: 1rem 0rem 0.875rem;
+}
+.navigation .navigation-item {
+  color: #fff;
+  font-weight: 500;
+}
+.navigation .navigation-link {
+  display: block;
+  padding: 0.25rem 1rem;
+  color: #495057;
+  font-weight: 500;
+  -webkit-transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
+  border-radius: 0.375rem;
+  text-decoration: none;
+}
+.navigation .navigation-link:hover,
+.navigation .navigation-link.active {
+  color: #288cff;
+}
+
+.from-work-navigation .navigation-link:hover,
+.from-work-navigation .navigation-link.active {
+  color: var(--work-main-color) !important;
+}
+.scrollbar-inner {
+  height: 100%;
+}
+.scrollbar-inner > .scroll-element {
+  transition: opacity 300ms;
+  margin-right: 2px;
+}
+.scrollbar-inner > .scroll-element.scroll-y {
+  width: 3px;
+  right: 0;
+}
+.scrollbar-inner > .scroll-element.scroll-x {
+  height: 3px;
+  bottom: 0;
+}
+.scrollbar-inner > .scroll-element .scroll-bar,
+.scrollbar-inner > .scroll-element .scroll-element_track {
+  transition: background-color 300ms;
+}
+.scrollbar-inner > .scroll-element .scroll-element_track {
+  background-color: transparent;
+}
+.scrollbar-inner:not(:hover) .scroll-element {
+  opacity: 0;
+}
+.page-title {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+.page-title .heading {
+  margin: 0;
+  padding: 0;
+  color: #212529;
+}
+.page-title .heading a {
+  color: #212529;
+}
+@media (min-height: 600px) and (min-width: 767px) {
+  .background-image-holder[data-holder-type='hero'] {
+    height: 80vh;
+  }
+}
+.background-image-holder .holder-item {
+  height: 100%;
+  padding: 2rem 0;
+}
+@media (max-width: 991px) {
+  .background-image-holder .holder-item {
+    height: auto;
+    padding: 4rem 0;
+  }
+}
+.background-image-holder .swiper-container,
+.background-image-holder .container {
+  position: relative;
+  height: 100%;
+}
+.background-image-holder .swiper-container .swiper-slide .animated {
+  opacity: 0;
+}
+.background-image-holder
+  .swiper-container
+  .swiper-slide
+  .animated.animation-ended {
+  opacity: 1;
+}
+.bg-cover {
+  position: relative;
+}
+.bg-size--cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-size--contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.typeface-palette .typeface-entry {
+  position: relative;
+  display: block;
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem;
+}
+.typeface-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.color-palette .color-entry {
+  position: relative;
+  display: block;
+  height: 170px;
+  color: #fff;
+  border-radius: 0.375rem;
+}
+.color-palette .color-entry .color-code {
+  background: #fff;
+  color: #495057;
+  padding: 6px 10px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+.content-docs h2[id]::before,
+.content-docs h3[id]::before,
+.content-docs h4[id]::before {
+  content: '';
+  display: block;
+  height: 3rem;
+  margin-top: -3rem;
+}
+.content-docs h2[id]:not(:first-child),
+.content-docs h3[id]:not(:first-child),
+.content-docs h4[id]:not(:first-child) {
+  margin-top: 5rem;
+}
+.content-docs h2[id],
+.content-docs h3[id],
+.content-docs h4[id] {
+  margin-bottom: 2rem;
+}
+.highlight pre {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+.code-example {
+  margin: 2rem 0;
+}
+.code-clipboard {
+  position: relative;
+}
+.btn-clipboard {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+  display: block;
+  padding: 0.25rem 0.5rem;
+  font-size: 75%;
+  color: #818a91;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0.25rem;
+}
+.btn-clipboard:hover {
+  color: #fff;
+  background-color: #027de7;
+}
+.toc-entry {
+  display: block;
+}
+.toc-entry a {
+  display: block;
+  padding: 0.125rem 1.5rem;
+  color: #99979c;
+}
+.toc-entry a:hover {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.toc-entry-orange a:hover {
+  color: var(--work-main-color) !important;
+  text-decoration: none;
+}
+
+/* 生活页面 主白色字体 */
+.toc-entry-white a {
+  display: block;
+  padding: 0.125rem 1.5rem;
+  color: #fff !important;
+}
+.toc-entry-white a:hover {
+  color: var(--life-main-color) !important;
+  text-decoration: none;
+}
+
+/* 代码调整 */
+.need-text-indent {
+  text-indent: 32px;
+}
+
+.special-code-style {
+  background: #262626;
+  color: var(--work-main-color) !important;
+  border-radius: 16px;
+  line-height: 24px;
+  font-size: 16px;
+}
+
+.special-code-style pre {
+  color: inherit;
+}
+
+/* 滚动条样式调整 */
+
+/* 工作用绿色  */
+.special-wrap-work {
+  overflow-y: auto;
+  background: url('../../pages/work/background.png') repeat 0 0;
+}
+
+.special-wrap-work .footer,
+.special-wrap-life .footer {
+  background: transparent;
+}
+.special-wrap-work::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.special-wrap-work::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  /* background-color: #00c792; */
+  background-color: rgb(183, 183, 184);
+  /* background-color: skyblue; */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.special-wrap-work::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
+/* 两端的按钮 不要其实更好看 */
+/* .special-wrap-work::-webkit-scrollbar-button {
+  background: yellow;
+  border-radius: 4px;
+} */
+
+/* 生活用红色 */
+.special-wrap-life {
+  overflow-y: auto;
+  background: url('../../pages/life/dark.jpg') no-repeat 0 / cover;
+  color: #fff;
+}
+.special-wrap-life::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.special-wrap-life::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background-color: var(--life-main-color);
+  /* background-color: #ff0033; */
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.special-wrap-life::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
+
+/* 返回按钮样式调整 */
+
+.button-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 70px;
+
+  /* border: 1px solid red; */
+}
+
+.colorful-button {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border: 2px solid #262626;
+  /* border: 1px solid rgb(143, 238, 230); */
+  border-radius: 25px;
+  text-align: center;
+  line-height: 60px;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  /* color: rgb(145 243 225); */
+  font-size: 18px;
+}
+
+/* a标签 hover 不变色 */
+.colorful-button:hover {
+  color: #fff;
+}
+
+/* 写一个旋转的框框 添加一个比按钮1/4面积稍微大一点的before伪元素 */
+.colorful-button::before {
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  height: 50%;
+  content: ' ';
+  /* 旋转体的宽高决定了环绕的样式 */
+  width: 140px;
+  height: 140px;
+  /* 202 24 92 */
+  /* background-color: rgb(202 24 92); */
+  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(143, 238, 230); */
+  z-index: -1;
+  transform-origin: left top;
+  /* 调用旋转动画 2s一个周期 无限循环 匀速 */
+  animation: rotate 2s infinite linear;
+}
+
+.colorful-button::after {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  content: ' ';
+  width: 190px;
+  height: 50px;
+  /* 修改按钮颜色 可以在这里修改 */
+  background: #262626;
+  border-radius: 19px;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.graceful-button {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border: 2px solid #fff;
+  /* border: 1px solid rgb(143, 238, 230); */
+  border-radius: 25px;
+  text-align: center;
+  line-height: 60px;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  /* color: rgb(145 243 225); */
+  font-size: 18px;
+}
+
+/* a标签 hover 不变色 */
+.graceful-button:hover {
+  color: #fff;
+}
+
+/* 写一个旋转的框框 添加一个比按钮1/4面积稍微大一点的before伪元素 */
+.graceful-button::before {
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  height: 50%;
+  content: ' ';
+  /* 旋转体的宽高决定了环绕的样式 */
+  width: 140px;
+  height: 140px;
+  /* 202 24 92 */
+  /* background-color: rgb(202 24 92); */
+  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(143, 238, 230); */
+  z-index: -1;
+  transform-origin: left top;
+  /* 调用旋转动画 2s一个周期 无限循环 匀速 */
+  animation: rotate 2s infinite linear;
+}
+
+.graceful-button::after {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  content: ' ';
+  width: 190px;
+  height: 50px;
+  /* 修改按钮颜色 可以在这里修改 */
+  background: rgb(49, 85, 189);
+  border-radius: 19px;
+  z-index: -1;
+}
+
+/*  自我介绍页面的button */
+.beautiful-button {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border: 1px solid rgb(143, 238, 230);
+  border-radius: 25px;
+  text-align: center;
+  line-height: 60px;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* a标签 hover 不变色 */
+.beautiful-button:hover {
+  color: #fff;
+}
+
+/* 写一个旋转的框框 添加一个比按钮1/4面积稍微大一点的before伪元素 */
+.beautiful-button::before {
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  height: 50%;
+  content: ' ';
+  /* 旋转体的宽高决定了环绕的样式 */
+  width: 140px;
+  height: 140px;
+  background-color: rgb(143, 238, 230);
+  z-index: -1;
+  transform-origin: left top;
+  /* 调用旋转动画 2s一个周期 无限循环 匀速 */
+  animation: rotate 2s infinite linear;
+}
+
+.beautiful-button::after {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  content: ' ';
+  width: 190px;
+  height: 50px;
+  /* 修改按钮颜色 可以在这里修改 */
+  background: rgb(49, 189, 140);
+  border-radius: 19px;
+  z-index: -1;
+}
+
+/* 自我介绍页面的滚动条  */
+
+.introduction-page::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.introduction-page::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background: rgb(49, 189, 140);
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.introduction-page::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+  background: transparent;
+  /* background: #ededed; */
+  border-radius: 10px;
+}
+
+/* 工作主页 */
+
+.special-wrap-work .sidebar,
+.special-wrap-life .sidebar {
+  background: transparent;
+  border: none;
+}
+
+/* 自治更粗的border */
+
+.wider-border-bottom {
+  border-bottom: 6px solid #fff !important;
+}
+.wider-border-top {
+  border-top: 6px solid #fff !important;
+}
+.wider-border-left {
+  border-left: 6px solid #fff !important;
+}
+.wider-border-right {
+  border-right: 6px solid #fff !important;
+}
+
+/* 生活模块 字颜色 统一为白色 */
+.need-white-font {
+  color: #fff !important;
+}

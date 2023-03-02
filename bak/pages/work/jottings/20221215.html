@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>工作随笔</title>
+    <link rel="icon" href="../../../yan48.ico" type="image/x-icon" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="special-wrap-work">
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>20221215</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <div class="button-wrap">
+              <a href="javascript:history.back(-1)" class="colorful-button">
+                返 回
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <h3 id="first">一、批量引入本地图片数据渲染</h3>
+                <div class="need-text-indent">
+                  <p>代码示例</p>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        /**
+                        *
+                        * @description dom渲染完成后取到原始图片数据
+                        */
+                       const getImgData = () => {
+                         let resultImgs: any[] = []
+                         //引入图片数据
+                         let cache = {}
+                         //@ts-ignore
+                         const context = require.context('./assets/', true, /\.png$/)
+                         context.keys().forEach((key: string | number) => {
+                           //@ts-ignore
+                           const keyArr = key.split('/')
+                           const result = keyArr[1].split('.')[0]
+                           //@ts-ignore
+                           cache[result] = require('./assets/' + keyArr[1])
+                           resultImgs.push(new LogoImg(require('./assets/' + keyArr[1]), result))
+                         })
+                         setImgCache(cache)
+                         setLogoImgs(resultImgs)
+                       }
+                      </code>
+                    </pre>
+                  </div>
+
+                  <p>
+                    主要技术点在于
+                    <strong>require.context</strong>
+                  </p>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        require.context(directory, useSubdirectories, regExp)
+                      </code>
+                    </pre>
+                  </div>
+                  <div style="padding-left: 120px; text-indent: 0;">
+                    <ul style="list-style-type: lower-alpha;">
+                      <li>directory: 要查找的文件路径</li>
+                      <li>useSubdirectories: 是否查找子目录</li>
+                      <li>regExp: 要匹配文件的正则</li>
+                    </ul>
+                  </div>
+                  <p>
+                    代码很简单，require.context执行后，返回一个方法webpackContext，这个方法又返回一个__webpack_require__，这个__webpack_require__就相当于require或者import。同时webpackContext还有二个静态方法keys与resolve，一个id属性。
+                  </p>
+                  <div style="padding-left: 120px; text-indent: 0;">
+                    <ol>
+                      <li>keys: 返回匹配成功模块的名字组成的数组</li>
+                      <li>
+                        resolve:
+                        接受一个参数request，request为test文件夹下面匹配文件的相对路径，返回这个匹配文件相对于整个工程的相对路径
+                      </li>
+                      <li>
+                        id:
+                        执行环境的id，返回的是一个字符串，主要用在module.hot.accept，应该是热加载
+                      </li>
+                    </ol>
+                  </div>
+                  <p>
+                    页面代码示例：
+                  </p>
+                  <div style="text-align: center;">
+                    <img src="./images/light.png" alt="" />
+                  </div>
+                </div>
+                <h3 id="second">二、浏览器请求动画帧</h3>
+                <div style="text-indent: 32px;">
+                  <div class="special-code-style">
+                    <pre>
+                    <code>
+                      window.requestAnimationFrame(callback);
+                    </code>
+                  </pre>
+                  </div>
+                  <p>
+                    <strong>
+                      window.requestAnimationFrame()
+                    </strong>
+                    告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行.
+                  </p>
+                  <h4>参数</h4>
+                  <p>
+                    下一次重绘之前更新动画帧所调用的函数
+                    (即上面所说的回调函数)。该回调函数会被传入DOMHighResTimeStamp参数，该参数与performance.now()的返回值相同，它表示requestAnimationFrame()
+                    开始去执行回调函数的时刻。
+                  </p>
+                  <h4>返回值</h4>
+                  <p>
+                    一个 long 整数，请求
+                    ID，是回调列表中唯一的标识。是个非零值，没别的意义。你可以传这个值给
+                    window.cancelAnimationFrame() 以取消回调函数。
+                  </p>
+                  <p>
+                    官方示例代码：
+                  </p>
+                  <div class="special-code-style">
+                    <pre>
+                    <code>
+                      const element = document.getElementById('some-element-you-want-to-animate');
+                      let start, previousTimeStamp;
+                      let done = false
+
+                      function step(timestamp) {
+                        if (start === undefined) {
+                          start = timestamp;
+                        }
+                        const elapsed = timestamp - start;
+
+                        if (previousTimeStamp !== timestamp) {
+                          // 这里使用 `Math.min()` 确保元素刚好停在 200px 的位置。
+                          const count = Math.min(0.1 * elapsed, 200);
+                          element.style.transform = 'translateX(' + count + 'px)';
+                          if (count === 200) done = true;
+                        }
+
+                        if (elapsed < 2000) { // 在两秒后停止动画
+                          previousTimeStamp = timestamp;
+                          if (!done) {
+                            window.requestAnimationFrame(step);
+                          }
+                        }
+                      }
+
+                      window.requestAnimationFrame(step);
+                    </code>
+                   </pre>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-h3 toc-entry-orange">
+                      <a href="#first">批量引入图片数据渲染</a>
+                    </li>
+                    <li class="toc-entry toc-h3 toc-entry-orange">
+                      <a href="#second">浏览器请求动画帧</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer">
+          <div class="container">
+            <div class="row align-items-center py-3 wider-border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2023
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../assets/js/theme.js"></script>
+  </body>
+</html>

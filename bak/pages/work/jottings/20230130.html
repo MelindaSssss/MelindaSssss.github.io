@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>工作随笔</title>
+    <link rel="icon" href="../../../yan48.ico" type="image/x-icon" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="special-wrap-work">
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>20230130</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <div class="button-wrap">
+              <a href="javascript:history.back(-1)" class="colorful-button">
+                返 回
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9 need-text-indent">
+                <h3 id="expression_introduction">CRON表达式介绍</h3>
+
+                <p>
+                  最近在业务中遇到用cron表达式来设置任务的执行时间。
+                </p>
+                <p>
+                  Cron表达式是一个具有时间含义的字符串，字符串以5-6个空格隔开，分为6-7个域，格式为X
+                  X X X X X X。其中 X
+                  是一个域的占位符。最后一个代表年份的域为非必须，可省略。单个域有多个取值时，使用半角逗号,隔开取值。每个域可以是确定的取值，也可以是具有逻辑意义的特殊字符。每个域最多支持一个前导零。
+                </p>
+                <p>
+                  🌝说明：
+                  如指定在2022年每天上午8：15执行任务，Cron表达式可以指定为 0 15
+                  8 ? * * 2022 或者是 0 15 08 ? * * 2022，而不能指定为 0 15 008
+                  ? * * 2022 。
+                </p>
+                <h3 id="domain_value">域取值</h3>
+                <table class="table table-light table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">域</th>
+                      <th scope="col">是否必须</th>
+                      <th scope="col">取值范围</th>
+                      <th scope="col">特殊字符</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">秒</th>
+                      <td>是</td>
+                      <td>[0, 59]</td>
+                      <td>* , - /</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">分钟</th>
+                      <td>是</td>
+                      <td>[0, 59]</td>
+                      <td>* , - /</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">小时</th>
+                      <td>是</td>
+                      <td>[0, 23]</td>
+                      <td>* , - /</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">日期</th>
+                      <td>是</td>
+                      <td>[1, 31]</td>
+                      <td>* , - / ? L W</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">月份</th>
+                      <td>是</td>
+                      <td>[1, 12]或[JAN, DEC]</td>
+                      <td>* , - /</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">星期</th>
+                      <td>是</td>
+                      <td>
+                        [1, 7]或[MON, SUN]。若您使用[1,
+                        7]表达方式，1代表星期一，7代表星期日。
+                      </td>
+                      <td>* , - / ? L #</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">年</th>
+                      <td>否</td>
+                      <td>
+                        [当前年份，2099]
+                      </td>
+                      <td>* , - /</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 id="special_characters">特殊字符</h3>
+                <p>
+                  cron表达式中的每个域都支持一定数量的特殊字符，每个特殊字符都有其特殊含义。
+                </p>
+                <table class="table table-light table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 82px;">特殊字符</th>
+                      <th scope="col">含义</th>
+                      <th scope="col">示例</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">*</th>
+                      <td>所有可能的值</td>
+                      <td>
+                        所有可能的值
+                        在月域中，*表示每个月；在星期域中，*表示星期的每一天。
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">,</th>
+                      <td>列出枚举值</td>
+                      <td>
+                        在分钟域中，5,20表示分别在5分钟和20分钟触发一次。
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">-</th>
+                      <td>范围</td>
+                      <td>
+                        在分钟域中，5-20表示从5分钟到20分钟之间每隔一分钟触发一次。
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">/</th>
+                      <td>指定数值的增量</td>
+                      <td>
+                        在分钟域中，0/15表示从第0分钟开始，每15分钟。在分钟域中3/20表示从第3分钟开始，每20分钟。
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">?</th>
+                      <td>不指定值，仅日期和星期域支持该字符</td>
+                      <td>
+                        当日期或星期域其中之一被指定了值以后，为了避免冲突，需要将另一个域的值设为?。
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">L</th>
+                      <td>
+                        单词Last的首字母，表示最后一天，仅日期和星期域支持该字符。🌝说明：指定L字符时，应尽量避免指定列表或者范围，否则会导致逻辑问题。
+                      </td>
+                      <td>
+                        <ul>
+                          <li>
+                            在日期域中，L表示某个月的最后一天。在星期域中，L表示一个星期的最后一天，也就是星期日（SUN）。
+                          </li>
+                          <li>
+                            如果在L前有具体的内容，例如，在星期域中的6L表示这个月的最后一个星期六。
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">W</th>
+                      <td>
+                        除周末以外的有效工作日，在离指定日期的最新的有效工作日触发事件。W字符寻找最近有效工作日时不会跨过当前月份，连用LW字符时表示为指定月份的最后一个工作日。
+                      </td>
+                      <td>
+                        在日期域中5W，如果5日是星期六，则将在最近的工作日星期五，即4日触发。如果5日是星期天，则将在最近的工作日星期一，即6日触发；如果5日在星期一到星期五中的一天，则就在5日触发。
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">#</th>
+                      <td>确定每个月第几个星期几，仅星期域支持该字符。</td>
+                      <td>在星期域中，4#2表示某月的第二个星期四。</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3 id="value_example">取值示例</h3>
+                <p>以下为cron表达式的取值示例。</p>
+                <table class="table table-light table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">示例</th>
+                      <th scope="col">说明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">0 15 10 ? * *</th>
+                      <td>每天上午10:15执行任务</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 * * ?</th>
+                      <td>每天上午10:15执行任务</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0 12 * * ?</th>
+                      <td>每天中午12:00执行任务</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0 10,14,16 * * ?</th>
+                      <td>每天上午10:00点、下午14:00以及下午16:00执行任务</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0/30 9-17 * * ?</th>
+                      <td>
+                        每天上午09:00到下午17:00时间段内每隔半小时执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 * 14 * * ?</th>
+                      <td>
+                        每天下午14:00到下午14:59时间段内每隔1分钟执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0-5 14 * * ?</th>
+                      <td>
+                        每天下午14:00到下午14:05时间段内每隔1分钟执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0/5 14 * * ?</th>
+                      <td>
+                        每天下午14:00到下午14:55时间段内每隔5分钟执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0/5 14,18 * * ?</th>
+                      <td>
+                        每天下午14:00到下午14:55、下午18:00到下午18:55时间段内每隔5分钟执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0 12 ? * WED</th>
+                      <td>
+                        每个星期三中午12:00执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 15 * ?</th>
+                      <td>
+                        每月15日上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 L * ?</th>
+                      <td>
+                        每月最后一日上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 ? * 6L</th>
+                      <td>
+                        每月最后一个星期六上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 ? * 6#3</th>
+                      <td>
+                        每月第三个星期六上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 10,44 14 ? 3 WED</th>
+                      <td>
+                        每年3月的每个星期三下午14:10和14:44执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 ? * * 2022</th>
+                      <td>
+                        2022年每天上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 ? * * *</th>
+                      <td>
+                        每年每天上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0/5 14,18 * * ? 2022</th>
+                      <td>
+                        2022年每天下午14:00到下午14:55、下午18:00到下午18:55时间段内每隔5分钟执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 15 10 ? * 6#3 2022,2023</th>
+                      <td>
+                        2022年至2023年每月第三个星期六上午10:15执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 0/30 9-17 * * ? 2022-2025</th>
+                      <td>
+                        2022年至2025年每天上午09:00到下午17:30时间段内每隔半小时执行任务
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">0 10,44 14 ? 3 WED 2022/2</th>
+                      <td>
+                        从2022年开始，每隔两年3月的每个星期三下午14:10和14:44执行任务
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-entry-orange toc-h3">
+                      <a href="#expression_introduction">CRON表达式介绍</a>
+                    </li>
+                    <li class="toc-entry toc-h3 toc-entry-orange">
+                      <a href="#domain_value">域取值</a>
+                    </li>
+                    <li class="toc-entry toc-h3 toc-entry-orange">
+                      <a href="#special_characters">特殊字符</a>
+                    </li>
+                    <li class="toc-entry toc-h3 toc-entry-orange">
+                      <a href="#value_example">取值示例</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer">
+          <div class="container">
+            <div class="row align-items-center py-3 wider-border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2022
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../assets/js/theme.js"></script>
+  </body>
+</html>

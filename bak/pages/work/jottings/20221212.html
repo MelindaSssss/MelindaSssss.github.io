@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>工作随笔</title>
+    <link rel="icon" href="../../../yan48.ico" type="image/x-icon" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="special-wrap-work">
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>20221212</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <div class="button-wrap">
+              <a href="javascript:history.back(-1)" class="colorful-button">
+                返 回
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <h3 id="summary">Uint8ClampedArray</h3>
+                <div style="text-indent: 32px;">
+                  <p>
+                    <strong>Uint8ClampedArray（8 位无符号整型固定数组）</strong>
+                    类型化数组表示一个由值固定在 0-255 区间的 8
+                    位无符号整型组成的数组；如果你指定一个在 [0,255]
+                    区间外的值，它将被替换为 0 或
+                    255；如果你指定一个非整数，那么它将被设置为最接近它的整数。（数组）内容被初始化为
+                    0。一旦（数组）被创建，你可以使用对象的方法引用数组里的元素，或使用标准的数组索引语法（即使用方括号标记）。
+                  </p>
+                  <p>
+                    语法：
+                  </p>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        new Uint8ClampedArray(length);
+                        new Uint8ClampedArray(typedArray);
+                        new Uint8ClampedArray(object);
+                        new Uint8ClampedArray(buffer [, byteOffset [, length]]);
+                        
+                      </code>
+                    </pre>
+                  </div>
+                  <p>
+                    写
+                    <a
+                      href="https://github.com/MelindaSssss/particle-canvas"
+                      target="_blank"
+                    >
+                      粒子动画
+                    </a>
+                    时取像素点信息遇到，canvas的一个方法返回值ImageData对象里的data属性即为Uint8ClampedArray
+                    的一维数组
+                  </p>
+                  <div class="special-code-style">
+                    <pre>
+                      <code>
+                        /* 
+                        ctx.getImageData(sx, sy, sw, sh);
+                        参数
+                        sx：将要被提取的图像数据矩形区域的左上角 x 坐标。
+                        sy：将要被提取的图像数据矩形区域的左上角 y 坐标。
+                        sw：将要被提取的图像数据矩形区域的宽度。
+                        sh：将要被提取的图像数据矩形区域的高度。
+                        返回值： 返回的是一个ImageData对象，该对象包含了三个只读属性：
+                        属性	含义
+                        ImageData.width	ImageData的宽度，用像素表示
+                        ImageData.height	ImageData的高度，用像素表示
+                        ImageData.data	  类型为 Uint8ClampedArray 的一维数组，
+                                          每四个数组元素代表了一个像素点的RGBA信息，每个元素数值介于0~255
+                        */
+                      const imgData = tmp_ctx?.getImageData(0, 0, imgW, imgH).data // 获取像素点数据
+                      </code>
+                    </pre>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="./images/unit8.png" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-h3 toc-entry-orange">
+                      <a href="#summary">Uint8ClampedArray</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer">
+          <div class="container">
+            <div class="row align-items-center py-3 wider-border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2023
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../assets/js/theme.js"></script>
+  </body>
+</html>

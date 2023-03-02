@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>机器学习开发步骤</title>
+    <link rel="icon" href="../../../../yan48.ico" type="image/x-icon" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="special-wrap-work">
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>深度学习在前端项目中的简单应用</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <div class="button-wrap">
+              <a href="javascript:history.back(-1)" class="colorful-button">
+                返 回
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <h3 id="title_1">人工智能领域的研究范畴</h3>
+                <div style="text-indent: 32px;">
+                  <p>
+                    人工智能（
+                    <span style="color: #117ce3;">Artificial Intelligence</span>
+                    ），英文 缩写为
+                    <span style="color: #117ce3;">AI</span>
+                    。它是
+                    <span style="color: #117ce3;">研究、开发</span>
+                    用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。
+                  </p>
+                  <p>
+                    人工智能是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。人工智能是包括十分广泛的科学，它由不同的领域组成，包括但不限于机器学习，计算机视觉，自然语言处理，知识表现，智能搜索，推理，规划，知识获取，组合调度问题，感知问题，模式识别，逻辑程序设计软计算，不精确和不确定的管理，人工生命，神经网络，复杂系统，遗传算法等等，总的说来，人工智能研究的一个主要目标是使机器能够胜任一些通常需要人类智能才能完成的复杂工作。总结：
+                    <strong>
+                      人工智能指使机器像人一样去决策
+                    </strong>
+                    。
+                  </p>
+                </div>
+                <h3 id="title_2">机器学习，深度学习</h3>
+                <div style="text-indent: 32px;">
+                  <div style="text-align: center;">
+                    <img src="./imgs/1.png" alt="" />
+                  </div>
+                  <p>
+                    历史上任何技术的出现都是为了解决现实问题，而现实问题分为简单问题和复杂问题。简单问题，需要简单分析，我们使用数据分析。复杂问题，需要复杂分析，我们使用机器学习。
+                  </p>
+                  <p>
+                    什么是简单问题？比如公司领导想知道每周的销售情况，这种就是简单问题。简单问题可以用数据分析来处理，通过分析数据来分析出有用的信息。什么是复杂问题？比如我们天天使用的淘宝，它会根据你的历史购物习惯（数据），来给推荐你可能感兴趣的商品。淘宝是如何做到的呢？它不可能专门给你发私信来问你，对于这种复杂问题，淘宝背后使用的就是机器学习。
+                  </p>
+                  <p>
+                    那什么是机器学习？机器学习是一门多领域交叉学科，涉及概率论、统计学、逼近论、凸分析、算法复杂度理论等多门学科。专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能。它是人工智能核心，是使计算机具有智能的根本途径。换成白话文，机器学习是用机器学习算法来建立模型，当有新的数据过来时，可以通过模型来进行预测。
+                  </p>
+                  <p>
+                    <strong>总结：机器学习是实现人工智能的一种技术。</strong>
+                  </p>
+                </div>
+                <h3 id="title_3">深度学习，迁移学习</h3>
+                <h4 id="title_3_1">迁移学习背景</h4>
+                <div style="text-indent: 32px;">
+                  <p>
+                    机器学习分很多方法（算法），不同的方法解决不同的问题。深度学习是机器学习中的一个分支方法。机器学习包含了三种最常见机器学习任务，分别是回归方法，分类方法和聚类方法。细节如下：
+                  </p>
+                  <div style="text-align: center;">
+                    <img src="./imgs/2.jpg" alt="" />
+                  </div>
+                  <p>
+                    随着越来越多的机器学习应用场景的出现，而现有表现比较好的监督学习需要大量的标注数据，标注数据是一项枯燥无味且花费巨大的任务，所以迁移学习受到越来越多的关注。
+                  </p>
+                  <div>
+                    <p>传统机器学习(主要指监督学习)：</p>
+                    <ul style="margin-left: 32px;">
+                      <li style="text-indent: 0;">基于同分布假设</li>
+                      <li style="text-indent: 0;">需要大量标注数据</li>
+                    </ul>
+                    <p>然而实际使用过程中不同数据集可能存在一些问题，比如</p>
+                    <ul style="margin-left: 32px;">
+                      <li style="text-indent: 0;">数据分布差异</li>
+                      <li style="text-indent: 0;">标注数据过期</li>
+                      <li style="text-indent: 0;">
+                        训练数据过期，也就是好不容易标定的数据要被丢弃，有些应用中数据是分布随着时间推移会有变化
+                      </li>
+                    </ul>
+                  </div>
+                  <p>
+                    如何充分利用之前标注好的数据（废物利用），同时又保证在新的任务上的模型精度？
+                  </p>
+                  <p>基于这样的问题，所以就有了对于迁移学习的研究：</p>
+                  <div style="text-align: center;">
+                    <img src="./imgs/3.png" alt="" />
+                  </div>
+                  <p>
+                    迁移学习是一种机器学习方法，就是把为任务 A
+                    开发的模型作为初始点，重新使用在为任务 B 开发模型的过程中。
+                  </p>
+                  <p>
+                    迁移学习是深度学习中的一种流行方法，在这种方法中，预先训练好的模型被用作计算机视觉和自然语言处理任务的起点，因为在这些问题上开发神经网络模型需要大量的计算和时间资源，而由它们为起点的模型能够为其他相关问题的训练提供很大的进步。
+                  </p>
+                  <p>
+                    Transfer learning is the improvement of learning in a new
+                    task through the transfer of knowledge from a related task
+                    that has already been learned.
+                  </p>
+                  <strong>主要思想</strong>
+                  <p>
+                    从相关领域中迁移标注数据或者知识结构、完成或改进目标领域或任务的学习效果。
+                  </p>
+                </div>
+                <br />
+                <h4 id="title_3_2">迁移学习的主要方法</h4>
+                <div>
+                  <ol>
+                    <li>
+                      选择源模型。从可用模型中选择预先训练的源模型。许多研究机构在大型且具有挑战性的数据集上发布模型，这些数据集可能包含在候选模型库中，供选择。
+                    </li>
+                    <li>
+                      重用模型。然后，可以将预先训练好的模型用作第二个感兴趣任务的模型起点。这可能涉及使用模型的全部或部分，具体取决于所使用的建模技术。
+                    </li>
+                    <li>
+                      调整模型。可选地，模型可能需要根据感兴趣的任务可用的输入-输出对数据进行调整或细化。
+                    </li>
+                  </ol>
+                </div>
+                <h4 id="title_3_3">使用迁移学习的时机</h4>
+                <div style="text-indent: 32px;">
+                  <p>
+                    迁移学习可以使的训练速度更快，能够得到更好的结果，如下图可见应用迁移学习与否对与训练的影响。
+                  </p>
+                  <div style="text-align: center;">
+                    <img src="./imgs/4.jpg" width="800px" alt="" />
+                  </div>
+                </div>
+                <h3 id="title_4">迁移学习流程概览</h3>
+                <div style="text-indent: 32px;">
+                  <p>
+                    迁移学习流程基本分为准备数据集，训练模型，应用模型几个部分，本次项目目标是实现前端项目组件库内部图标分类，支持截图搜索，减少在数量众多的图标内滚动搜索目标图标名称的时间。
+                  </p>
+                  <h4 id="title_4_1">数据集处理</h4>
+                  <p>
+                    不管是简单的线性回归还是复杂的深度学习，都是从“经验”中学习。那么这个“经验”呢，在机器学习里被称为“样本”。所以，首先我们要生成给机器学习的样本，也就是数据集。在图标分类任务中，样本包含两部分，一是图片，二是图片对应的标签，标签指的是图片的分类名称，比如你想识别我写的是中文还是英文，那么中文和英文就是字的标签。研究表明，样本越多，深度学习模型学得越好。生成数据集显然是有高级技巧的，只是鉴于我是新手，所以采用了比较传统的cv、pil来批量处理数据生成数据集并对数据集进行数据增强。
+                  </p>
+                  <p>
+                    示例代码如下：
+                  </p>
+                  <div style="text-align: center;">
+                    <img src="./imgs/5.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <h4 id="title_4_2">迁移训练</h4>
+                  <div>
+                    <p>
+                      在准备好数据集之后就可以开始迁移训练了，我们使用的是
+                      Tensorflow
+                      这个框架，使用迁移学习，可以直接获取官方已经构建好了的网络模型架构，以及训练好的权重参数，可能这些参数和我们处理的问题不太一样。但相比我们建模过程中采用随机初始化的权重参数，预训练的权重参数会让我们的模型训练速度更快，准确率提高，只要稍作调整就能达到很好的效果。预训练模型是一个之前基于大型数据集（通常是大型图像分类任务）训练的已保存网络。您可以按原样使用预训练模型，也可以使用迁移学习针对给定任务自定义此模型。
+                    </p>
+                    <p>
+                      因为迁移学习的理念是，如果一个模型是基于足够大且通用的数据集训练的，那么该模型将有效地充当视觉世界的通用模型。随后，可以利用这些学习到的特征映射，而不必通过基于大型数据集训练大型模型而从头开始。
+                    </p>
+                    <p>
+                      本节我使用迁移学习导入MobileNetV2网络，进行图标多分类的研究。下面介绍的是基于预训练模型冻住部分层，解冻的层可以更新权重参数，从而进行训练。细节如下：
+                    </p>
+
+                    <h5 id="title_4_2_1">1. 数据加载</h5>
+                    <p>
+                      使用tf.keras.preprocessing.image_dataset_from_directory()方法，在指定的文件夹中获取图像数据。其中label_model参数中，'int'：表示标签被编码成整数（例如：sparse_categorical_crossentropy
+                      loss）。'categorical'：多分类，指标签被编码为分类向量（例如：categorical_crossentropy
+                      loss）。'binary'：二分类，意味着标签（只能有2个）被编码为值为0或1的float32标量（例如：binary_crossentropy）。None：（无标签）。示例图如下：
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/6.png" width="800px" alt="" />
+                    </div>
+                    <br />
+
+                    <h5 id="title_4_2_2">2. 数据可视化</h5>
+                    <p>
+                      iter()生成一个迭代器，配合next()使用，每运行一次，就从指定数据集中取出一个batch的数据，返回图像数据sample[0]和标签数据sample[1]。
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/7.png" width="800px" alt="" />
+                    </div>
+                    <br />
+                    <div style="text-align: center;">
+                      <img src="./imgs/8.png" width="800px" alt="" />
+                    </div>
+                    <br />
+                    <h5 id="title_4_2_3">3. 数据预处理</h5>
+                    <p>
+                      对训练集和测试集的数据集改变数据类型，并且将图像数据从[0,255]映射到[-1,1]之间，因为我们使用的预训练的MobileNetV2模型对输入有要求是在[-1,1]之间，我们需要和它保持一致，所以需要对数据进行归一化。示例图如下：
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/9.png" width="800px" alt="" />
+                    </div>
+                    <br />
+                    <h5 id="title_4_2_4">4. 冻结所有特征提取层</h5>
+                    <p>
+                      在进行迁移学习时，我们一般有两种方法，法一：取卷积部分作为权重参数初始化，并继续进行训练；练法二：把别人训练好的层冻住，只用于特征提取，权重参数不更新。一般全连接层按自己的方式重新定义，把前面的特征提取的部分微调。当数据量小的时候(<1W)，越需要借助别人训练好的模型，需要冻住的层也就越多。数据量大且任务不一样时只进行权重参数初始化，而不冻住这些层。但图标多分类任务数据量大，所以采用微调的方式.
+                    </p>
+                    <p>
+                      input_shape：代表我们自己的输入图像的大小，某些模型对输入的大小有要求。include_top：是否要导入模型的全连接层部分，一般不需要，全连接层根据自己的任务来自定义，默认有1000个输出。weights：加载模型的权重参数，可以是：None不加载；'imagenet'官方训练好的权重；path自己找到的权重的文件路径。
+                    </p>
+                    <p>
+                      实例化一个已预加载基于 ImageNet 训练的权重的 MobileNet V2
+                      模型。通过指定include_top=False参数，可以加载不包括顶部分类层的网络，这对于特征提取十分理想。layer遍历预训练模型的所有层，使所有层的layer.trainable
+                      =
+                      False，即所有层在模型训练的正方向传播过程中，权重参数都不会发生变化，不进行更新。示例图如下：
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/10.png" width="800px" alt="" />
+                    </div>
+                    <br />
+                    <h5 id="title_4_2_5">5. 微调网络</h5>
+                    <p>
+                      只冻住部分特征提取层。解冻的层layer.trainable =
+                      True，可以在正反向传播的过程中更新权重参数，而被冻住的层layer.trainable
+                      =
+                      False不能更新权重参数。微调网络可以提高我们的模型的精度，由于我们自己的任务和预训练模型解决的任务不相同，因此用一样的权重参数肯定达不到理想的效果。具体解封多少层需要按照自己的数据量来定，如果数据量很少，那就越需要依靠预训练模型的权重参数。如果数据量大，或任务相差很大的话，也需要解封很多层。
+                    </p>
+                    <p>
+                      在大多数卷积网络中，层越高，它的专门程度就越高。前几层学习非常简单且通用的特征，这些特征可以泛化到几乎所有类型的图像。随着向上层移动，这些特征越来越特定于训练模型所使用的数据集。微调的目标是使这些专用特征适应新的数据集，而不是覆盖通用学习。
+                    </p>
+                    <p>
+                      首先我们需要将之前冻结的层全部解开pre_model.trainable =
+                      True，在这个网络中有154层，那我们就冻结到第120层（包括第120层）。具体冻结到几层，自己调控。使用一个for循环遍历前120层，指定layer.trainable
+                      =
+                      False就可以将它们的权重参数都冻住了，正方向传播都不会更新了。而解冻的就可以改变权重参数优化我们的网络了。示例图如下：
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/11.png" width="800px" alt="" />
+                    </div>
+                    <p>
+                      网络结构如下，我们看到预训练模型中，可训练参数的数量明显增加，Trainable
+                      params:
+                      1,624,896，因此也有更多的参数可以更新权重，提高我们网络的精度。
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/12.png" width="800px" alt="" />
+                    </div>
+                    <p>
+                      网络编译和配置的方法和前面相同，经过几次迭代后，可见微调后的准确率有所上升。损失和准确率的变化更加平稳。若是正在训练一个大得多的模型并且想要重新调整预训练权重时，请务必在此阶段使用较低的学习率，否则，模型可能会很快过拟合。
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/13.png" width="800px" alt="" />
+                    </div>
+                    <br />
+                    <div style="text-align: center;">
+                      <img src="./imgs/14.png" width="800px" alt="" />
+                    </div>
+                    <p>评估可视化</p>
+                    <div style="text-align: center;">
+                      <img src="./imgs/15.png" width="800px" alt="" />
+                    </div>
+                    <br />
+                    <div style="text-align: center;">
+                      <img src="./imgs/16.png" width="800px" alt="" />
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                </div>
+                <h4 id="title_4_3">模型保存</h4>
+                <div style="text-indent: 32px;">
+                  <p>
+                    将整个模型保存到单个工件中。包括：模型的架构/配置、模型的权重值、模型的编译信息和优化器及其状态（以便在中断的位置重新开始训练）。常用API:
+                  </p>
+                  <ul style="margin-left: 32px;">
+                    <li style="text-indent: 0;">model.save()</li>
+                    <li style="text-indent: 0;">
+                      tf.keras.models.save_model()
+                    </li>
+                    <li style="text-indent: 0;">
+                      tf.keras.load_model()
+                    </li>
+                  </ul>
+                  <p>有两种方式可以将整个模型保存到磁盘：</p>
+                  <p>TensorFlow SavedModel format （默认方式，官方文档推荐）</p>
+                  <p>Keras H5 format（指定文件后缀名为’.h5’）</p>
+                  <p>示例图如下：</p>
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/17.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <p>
+                    模型训练好之后，就可以直接识别了，但由于是 Python
+                    代码，所以必须部署到服务器上，才能给大家用。由于要
+                    应用到前端，出于考虑，我们打算将模型转为 Tensorflow.js
+                    的模型，让用户下载到浏览器中进行识别。参考如下：
+                  </p>
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/18.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <p>转换后的模型数据：</p>
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/19.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <p>
+                    转换后的模型包含bin文件和model的json文件，由于转换后的tfjs_model数据过大，若是将其放在前端项目里，就算是压缩后也会严重影响组件库项目体积，所以采用将模型数据部署到跟组件库同源的服务器上的方案，在需要使用模型的时候，模型会被下载到浏览器上，这样有两个优点：
+                  </p>
+                  <ul style="margin-left: 32px;">
+                    <li style="text-indent: 0;">
+                      边缘计算：每个用户都有一台电脑，电脑上都有
+                      GPU，我们的模型下载到浏览器后可以使用海量用户的电脑 GPU
+                      算力，节约了服务器费用，也不用担心各种服务器攻击和服务器稳定性问题。
+                    </li>
+                    <li style="text-indent: 0;">
+                      识别速度快：由于模型被下载到了用户的浏览器中，所以识别过程没有网络传输，几乎是实时的。
+                    </li>
+                  </ul>
+                </div>
+
+                <br />
+                <br />
+                <h4 id="title_4_4">模型应用</h4>
+                <div style="text-indent: 32px;">
+                  <p>单个图片测试</p>
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/20.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <p>前端项目采用dumi+react+ts，效果图如下：</p>
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/21.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/22.png" width="800px" alt="" />
+                  </div>
+                  <br />
+                  <br />
+                  <div style="text-align: center;">
+                    <img src="./imgs/23.jpg" width="800px" alt="" />
+                  </div>
+                  <br />
+                </div>
+                <h3 id="summary">总结</h3>
+                <div>
+                  <ol style="line-height: 28px;">
+                    <li>
+                      人工智能指使机器像人一样去决策
+                    </li>
+                    <li>机器学习是实现人工智能的一种技术</li>
+                    <li>
+                      机器学习分很多方法（算法），不同的方法解决不同的问题。深度学习是机器学习中的一个分支方法，迁移学习是深度学习的一个实现方案。
+                    </li>
+                    <li>
+                      数据分析可以帮助你从零进入人工智能时代。如果你喜欢深入技术，学会了数据分析，你才能打好基础，去学习机器学习。如果你喜欢商业方面的内容，可以往人工智能业务方向发展。
+                    </li>
+                    <li>
+                      上述图标分类任务还有许多待完善的地方，比如弱样本学习任务，安全迁移，或者是自动标注，待更完善后再与大家分享。
+                    </li>
+                    <li>下面这张图是它们之间的关系</li>
+                  </ol>
+                  <div style="text-align: center;">
+                    <img src="./imgs/24.png" alt="" />
+                  </div>
+                </div>
+                <br />
+                <br />
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-h3">
+                      <a href="#title_1">人工智能领域的研究范畴</a>
+                    </li>
+                    <li class="toc-entry toc-h3">
+                      <a href="#title_2">机器学习，深度学习</a>
+                    </li>
+                    <li class="toc-entry toc-h3">
+                      <a href="#title_3">深度学习，迁移学习</a>
+                      <ul class="section-nav">
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_3_1">迁移学习背景</a>
+                        </li>
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_3_2">迁移学习的主要方法</a>
+                        </li>
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_3_3">使用迁移学习的时机</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="toc-entry toc-h3">
+                      <a href="#title_4">迁移学习流程概览</a>
+                      <ul class="section-nav">
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_4_1">数据集处理</a>
+                        </li>
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_4_2">迁移训练</a>
+                          <ul
+                            class="section-nav"
+                            style="
+                              font-weight: normal;
+                              font-size: 12px;
+                              text-align: left;
+                              padding-left: 42px;
+                            "
+                          >
+                            <li class="toc-entry toc-h5">
+                              <a href="#title_4_2_1" style="padding-left: 0;">
+                                数据加载
+                              </a>
+                            </li>
+                            <li class="toc-entry toc-h5">
+                              <a href="#title_4_2_2" style="padding-left: 0;">
+                                数据可视化
+                              </a>
+                            </li>
+                            <li class="toc-entry toc-h5">
+                              <a href="#title_4_2_3" style="padding-left: 0;">
+                                数据预处理
+                              </a>
+                            </li>
+                            <li class="toc-entry toc-h5">
+                              <a href="#title_4_2_4" style="padding-left: 0;">
+                                冻结所有特征提取层
+                              </a>
+                            </li>
+                            <li class="toc-entry toc-h5">
+                              <a href="#title_4_2_5" style="padding-left: 0;">
+                                微调网络
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_4_3">模型保存</a>
+                        </li>
+                        <li class="toc-entry toc-h4">
+                          <a href="#title_4_4">模型应用</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="toc-entry toc-h3">
+                      <a href="#summary">总结</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer">
+          <div class="container">
+            <div class="row align-items-center py-3 border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2023
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../../assets/js/theme.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>机器学习开发步骤</title>
+    <link rel="icon" href="../../../yan48.ico" type="image/x-icon" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <!-- Plugins -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/animate/animate.min.css"
+      type="text/css"
+    />
+    <!-- Theme CSS -->
+    <link
+      type="text/css"
+      href="../../../assets/css/theme.css"
+      rel="stylesheet"
+    />
+    <!-- Demo CSS - No need to use these in your project -->
+    <link
+      rel="stylesheet"
+      href="../../../assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/vendor/highlight/css/highlight.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="../../../assets/css/demo.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="special-wrap-work">
+    <main class="main">
+      <aside class="sidebar" id="nav_docs">
+        <div class="sidebar-brand"></div>
+      </aside>
+      <section class="content">
+        <div class="header">
+          <div class="header-brand d-xl">
+            <h1>python-chatGPT</h1>
+          </div>
+          <div class="header-nav ml-auto">
+            <div class="button-wrap">
+              <a href="javascript:history.back(-1)" class="colorful-button">
+                返 回
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="content-inner content-docs">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <h3 id="summary">默认大家都会python</h3>
+                <p>第一步，先安装openai</p>
+                <div class="special-code-style">
+                  <pre>
+                    <code>
+                      pip install openai
+                    </code>
+                  </pre>
+                </div>
+
+                <br />
+                <br />
+                <p>第二步，上代码</p>
+                <div class="special-code-style">
+                  <pre>
+                    <code>
+                      import openai
+
+                      # 填你的秘钥
+                      openai.api_key = "your_openai_api_key"
+
+                      # 提问代码
+
+
+                      def chat_gpt(prompt):
+                          # 你的问题
+                          prompt = prompt
+
+                          # 调用 ChatGPT 接口
+                          model_engine = "text-davinci-003"
+                          completion = openai.Completion.create(
+                              engine=model_engine,
+                              prompt=prompt,
+                              max_tokens=1024,
+                              n=1,
+                              stop=None,
+                              temperature=0.5,
+                          )
+
+                          response = completion.choices[0].text
+                          print(response)
+
+
+                      chat_gpt('如何使用Pytorch创建一个简单模型?')
+                    </code>
+                  </pre>
+                </div>
+                <br />
+                <br />
+                <div style="text-align: center;">
+                  <img width="820" height="300" src="../images/chatGPT.png" />
+                </div>
+                <br />
+                <br />
+                <br />
+                <p>
+                  上面是班门弄斧的演示，具体详细的使用可以去看Chatgpt官网，
+                  <a
+                    href="https://platform.openai.com/docs/libraries/python-bindings"
+                    target="_blank"
+                  >
+                    文档
+                  </a>
+                  非常之详细，特别是python这块。
+                </p>
+              </div>
+              <div class="col-lg-3 d-none d-lg-inline-block">
+                <div class="sidebar-sticky" data-stick-in-parent="true">
+                  <ul class="section-nav">
+                    <li class="toc-entry toc-h3">
+                      <a href="#summary">chatGPT</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="px-3 footer">
+          <div class="container">
+            <div class="row align-items-center py-3 border-top">
+              <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                &copy; 2023
+                <span style="color: #3785ff;">MelindaSssss</span>
+                . All rights reserved.
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <ul class="nav justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://www.linkedin.cn/incareer/in/ACoAACxm2cQBNKMvBbKgeNZqP1SA_3NrWt8Ynis"
+                      target="_blank"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link nav-link-icon"
+                      href="https://github.com/MelindaSssss"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Core -->
+    <script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../assets/vendor/popper/popper.min.js"></script>
+    <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- FontAwesome 5 -->
+    <script
+      src="../../../assets/vendor/fontawesome/js/fontawesome-all.min.js"
+      defer
+    ></script>
+    <!-- Scripts used only for this demo only - Remove these in your project -->
+    <script src="../../../assets/vendor/jquery-scrollbar/js/jquery-scrollbar.min.js"></script>
+    <script src="../../../assets/vendor/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="../../../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../../../assets/vendor/highlight/js/highlight.min.js"></script>
+    <script src="../../../assets/vendor/clipboard-js/clipboard.min.js"></script>
+    <script src="../../../assets/vendor/holderjs/holder.min.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+    <!-- Theme JS -->
+    <script src="../../../assets/js/theme.js"></script>
+  </body>
+</html>
