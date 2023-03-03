@@ -1,0 +1,119 @@
+/*  自我介绍页面的button */
+.beautiful-button {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border: 1px solid rgb(143, 238, 230);
+  border-radius: 25px;
+  text-align: center;
+  line-height: 60px;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* a标签 hover 不变色 */
+.beautiful-button:hover {
+  color: #fff;
+}
+
+/* 写一个旋转的框框 添加一个比按钮1/4面积稍微大一点的before伪元素 */
+.beautiful-button::before {
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  height: 50%;
+  content: ' ';
+  /* 旋转体的宽高决定了环绕的样式 */
+  width: 140px;
+  height: 140px;
+  background-color: rgb(143, 238, 230);
+  z-index: -1;
+  transform-origin: left top;
+  /* 调用旋转动画 2s一个周期 无限循环 匀速 */
+  animation: rotate 2s infinite linear;
+}
+
+.beautiful-button::after {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  content: ' ';
+  width: 190px;
+  height: 50px;
+  /* 修改按钮颜色 可以在这里修改 */
+  background: rgb(49, 189, 140);
+  border-radius: 19px;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 自白书特殊样式 */
+.content-wrapper-pink {
+  /* border: 1px solid red; */
+  bottom: 10%;
+  right: 10%;
+  width: 500px;
+  height: 200px;
+  padding-left: 7.7rem;
+  padding-right: 3.6rem;
+  box-sizing: border-box;
+}
+
+.content-wrapper-pink::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(250, 104, 165) 20%,
+    rgba(252, 115, 115, 0.5) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  width: 40%;
+  height: 1px;
+  top: 28.4%;
+  left: 200px;
+  opacity: 1;
+  transition: width 0.3s 0.1s, opacity 0.3s 0.1s;
+}
+
+.content-wrapper-pink::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(252, 3, 3, 0) 0%,
+    rgba(251, 3, 3, 0.5) 20%,
+    rgba(192, 209, 80, 0.5) 80%,
+    rgba(253, 144, 139, 0) 100%
+  );
+  width: 1px;
+  height: 50%;
+  top: 60px;
+  left: 24%;
+  opacity: 1;
+  transition: height 0.3s, opacity 0.3s;
+}
+
+.content-inner-pink {
+  padding-left: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 280px;
+}
+
+.content-desc-pink {
+  font-size: 16px;
+}

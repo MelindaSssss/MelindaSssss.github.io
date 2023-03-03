@@ -17,9 +17,8 @@
   position: absolute;
   right: 10px;
   top: 50%;
- 
 }
 
-.line-item {
-  cursor: pointer;
+.line-item:hover {
+  color: rgb(10, 144, 197);
 }
