@@ -1,4 +1,4 @@
-import { Watermark, Layout, Badge } from 'antd'
+import { Layout, Badge } from 'antd'
 import type { pageTypeProps } from '../../App'
 import CommonFooter from '../../components/Footer'
 import './style.css'
@@ -23,7 +23,10 @@ const IntroductionPage = (props: IntroductionPageProps) => {
             </span>
           </div> */}
           {/* 特殊小鸟按钮 */}
-          <div className="button button--bird">
+          <div
+            className="button button--bird"
+            onClick={() => setPageType(null)}
+          >
             <div className="button__wrapper">
               <span className="button__text">BACK</span>
             </div>
