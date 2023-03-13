@@ -117,3 +117,416 @@
 .content-desc-pink {
   font-size: 16px;
 }
+
+/* bird button style */
+#bird-box {
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  border: solid 3px #000;
+  background: #f4cf47;
+  /* border-radius: 20px 30px 40px 50px; */
+  border-radius: 20px 30px 40px 50px / 50px 40px 30px 20px;
+}
+
+#clip-path {
+  width: 100px;
+  height: 40px;
+  background: tomato;
+  /* 草 */
+  /* clip-path: path(
+    'M13.77,37.35L.25,16.6c-.87-1.33,.69-2.91,2-2.02l12.67,8.59c.81,.55,1.91,.14,2.18-.81l2.62-9.33c.39-1.4,2.34-1.42,2.76-.02l3.6,11.99c.33,1.11,1.74,1.4,2.47,.52L49.38,.52c.87-1.04,2.53-.42,2.53,.95V23.7c0,1.13,1.2,1.83,2.16,1.26l12.75-7.51c.85-.5,1.94,0,2.13,.98l1.5,7.6c.2,1.03,1.37,1.51,2.22,.92l17.74-12.3c1.09-.75,2.52,.25,2.21,1.55l-2.44,10.2c-.26,1.09,.74,2.06,1.8,1.75l30.8-9.04c1.37-.4,2.42,1.26,1.49,2.36l-9.07,10.66c-.83,.98-.1,2.49,1.17,2.42l12.12-.68c1.6-.09,2.12,2.15,.65,2.8l-2.73,1.21c-.18,.08-.38,.12-.58,.12H14.97c-.48,0-.93-.25-1.2-.65Z'
+  ); */
+  /* 鸟毛 */
+  clip-path: path(
+    'M10.23,3.32c-3.54,.63-5.72,2.51-7.02,4.23-.33-1.58-.34-3.54,.93-5.12,.52-.65,.41-1.59-.24-2.11C3.24-.19,2.29-.08,1.77,.57c-3.82,4.77-.31,11.11-.13,11.42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.01-.02,2.49,.04,2.52,0,.1-.14,1.54-4.82,6.59-5.71,.82-.14,1.37-.92,1.22-1.74s-.94-1.36-1.75-1.21Z'
+  );
+}
+
+.button--bird {
+  --main_color: #f4cf47;
+  --base_color: #000;
+  /* 锯齿状颜色 */
+  --sub_color1: #f4e19c;
+  /* 鸟嘴颜色 */
+  --sub_color2: #ff8108;
+}
+
+.button {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 280px;
+  height: 80px;
+
+  text-decoration: none;
+  border: solid 3px #000;
+  border-radius: 40px;
+  background: var(--main_color);
+
+  position: relative;
+
+  /* overflow: hidden; */
+}
+
+.button__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+}
+
+.button__text {
+  font-size: 32px;
+  letter-spacing: 6px;
+  color: var(--base_color);
+
+  transition: all 0.3s ease;
+}
+
+/* 加上箭头伪元素 */
+
+.button::before {
+  content: '';
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  right: 30px;
+  margin: 0 auto;
+
+  background: var(--base_color);
+  clip-path: polygon(
+    50% 0,
+    26% 44%,
+    100% 44%,
+    100% 57%,
+    24% 57%,
+    49% 100%,
+    0% 50%
+  );
+
+  transition: all 0.5s ease;
+}
+
+/* 给里面的wrapper加上背景状 */
+
+.button__wrapper::after,
+.button__wrapper::before {
+  content: '';
+  width: 140px;
+  height: 36px;
+  background: var(--sub_color1);
+  position: absolute;
+  /* bottom: 0; */
+  clip-path: path(
+    'M13.77,37.35L.25,16.6c-.87-1.33,.69-2.91,2-2.02l12.67,8.59c.81,.55,1.91,.14,2.18-.81l2.62-9.33c.39-1.4,2.34-1.42,2.76-.02l3.6,11.99c.33,1.11,1.74,1.4,2.47,.52L49.38,.52c.87-1.04,2.53-.42,2.53,.95V23.7c0,1.13,1.2,1.83,2.16,1.26l12.75-7.51c.85-.5,1.94,0,2.13,.98l1.5,7.6c.2,1.03,1.37,1.51,2.22,.92l17.74-12.3c1.09-.75,2.52,.25,2.21,1.55l-2.44,10.2c-.26,1.09,.74,2.06,1.8,1.75l30.8-9.04c1.37-.4,2.42,1.26,1.49,2.36l-9.07,10.66c-.83,.98-.1,2.49,1.17,2.42l12.12-.68c1.6-.09,2.12,2.15,.65,2.8l-2.73,1.21c-.18,.08-.38,.12-.58,.12H14.97c-.48,0-.93-.25-1.2-.65Z'
+  );
+}
+
+.button__wrapper::before {
+  left: 24px;
+  bottom: 0;
+}
+
+.button__wrapper::after {
+  right: 28px;
+  bottom: 0;
+  transform: rotateY(180deg);
+}
+
+.button__wrapper::before,
+.button__wrapper::after {
+  transition: all 0.5s ease;
+}
+
+/* hover 效果 */
+.button:hover .button__text {
+  letter-spacing: 8px;
+}
+
+.button:hover .button__wrapper::before {
+  transform: translateX(-10px);
+}
+
+.button:hover .button__wrapper::after {
+  transform: rotateY(180deg) translateX(-10px);
+}
+
+.button:hover::before {
+  right: 14px;
+}
+
+.button:hover .wakeup {
+  animation: wakeup 0.5s ease;
+  /* 让动画停留在最后一帧 */
+  animation-fill-mode: forwards;
+}
+
+/* 醒了之后 边边角角也有问题  重新调整下*/
+@keyframes wakeup {
+  0% {
+    height: 32px;
+    /* border-radius: var(--border_radius2); */
+    border-radius: 70px 70px 40px 40px / 48px 48px 30px 30px;
+  }
+  100% {
+    height: 56px;
+    /* border-radius: var(--border_radius3); */
+    border-radius: 40px 40px 40px 40px / 48px 48px 30px 30px;
+  }
+}
+
+/* 醒了之后 眼睛要睁开 */
+
+.button:hover .wakeup .bird__face::before,
+.button:hover .wakeup .bird__face::after {
+  /* width: 6px;
+  height: 6px; */
+
+  animation: eye 5s linear infinite;
+}
+
+/* 第一只鸟往右边看  eye_first*/
+
+.button:hover .wakeup:nth-child(1) .bird__face::before,
+.button:hover .wakeup:nth-child(1) .bird__face::after {
+  /* width: 6px;
+  height: 6px; */
+
+  animation: eye_first 5s linear infinite;
+}
+
+/* 三只鸟的样式 */
+.birdBox {
+  position: absolute;
+  top: -54px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 180px;
+  height: 56px;
+}
+
+.button__bird {
+  --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
+  --border_radius2: 70px 70px 40px 40px / 48px 48px 30px 30px;
+  --border_radius3: 40px 40px 40px 40px / 48px 48px 30px 30px;
+}
+
+.bird {
+  width: 56px;
+  height: 36px;
+  box-sizing: border-box;
+  border: solid 3px #000;
+  background: var(--main_color);
+  border-radius: 60px 60px 40px 40px / 48px 48px 30px 30px;
+  /* border-radius: var(--border_radius1); 不知道为啥这样写不生效*/
+
+  position: relative;
+
+  /* 鸟嘴居中 */
+  display: flex;
+  justify-content: center;
+
+  /* sleep */
+  animation: sleep 1s ease infinite alternate;
+}
+
+.bird::before {
+  content: '';
+
+  position: absolute;
+  top: -12px;
+  left: 22px;
+
+  width: 12px;
+  height: 12px;
+
+  background: #000;
+  clip-path: path(
+    'M10.23,3.32c-3.54,.63-5.72,2.51-7.02,4.23-.33-1.58-.34-3.54,.93-5.12,.52-.65,.41-1.59-.24-2.11C3.24-.19,2.29-.08,1.77,.57c-3.82,4.77-.31,11.11-.13,11.42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.01-.02,2.49,.04,2.52,0,.1-.14,1.54-4.82,6.59-5.71,.82-.14,1.37-.92,1.22-1.74s-.94-1.36-1.75-1.21Z'
+  );
+}
+
+.bird__face {
+  position: absolute;
+  top: 15px;
+  width: 12px;
+  height: 6px;
+
+  background: var(--sub_color2);
+  border-radius: 50% 50% 50% 50% / 78% 78% 22% 22%;
+}
+
+/* 左右眼睛 */
+
+.bird__face::before,
+.bird__face::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 8px;
+
+  height: 2px;
+  border-radius: 4px;
+  background: var(--base_color);
+}
+
+.bird__face::before {
+  left: -5px;
+}
+.bird__face::after {
+  right: -5px;
+}
+
+/* 无线循环眨眼动画 */
+@keyframes eye {
+  0% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  30% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  32% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+  34% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  70% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  72% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+  74% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  76% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+  78% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  100% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* 第一只大哥 往右看 欸 它怎么没起床干活 */
+@keyframes eye_first {
+  0% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  10% {
+    transform: translateX(0);
+  }
+  12% {
+    transform: translateX(3px);
+  }
+  20% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  22% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+  24% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  25% {
+    transform: translateX(3px);
+  }
+  27% {
+    transform: translateX(0);
+  }
+  74% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+    transform: translateX(0);
+  }
+  76% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+    transform: translateX(3px);
+  }
+  78% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  80% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+  82% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+  85% {
+    transform: translateX(3px);
+  }
+  87% {
+    transform: translateX(0);
+  }
+  100% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+    transform: translateX(0);
+  }
+}
+
+/* 全部睡着了 */
+@keyframes sleep {
+  0% {
+    height: 36px;
+    border-radius: 60px 60px 40px 40px / 48px 48px 30px 30px;
+    /* border-radius: var(--border_radius1); */
+  }
+  100% {
+    height: 32px;
+    border-radius: 70px 70px 40px 40px / 48px 48px 30px 30px;
+    /* border-radius: var(--border_radius2); */
+  }
+}

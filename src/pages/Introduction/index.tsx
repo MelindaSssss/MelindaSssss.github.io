@@ -14,13 +14,32 @@ const IntroductionPage = (props: IntroductionPageProps) => {
       <Layout>
         <Header style={{ display: 'flex', justifyContent: 'space-between' }}>
           <h2>:::::::::::::::</h2>
-          <div className="button-wrap">
+          {/* <div className="button-wrap">
             <span
               onClick={() => setPageType(null)}
               className="beautiful-button"
             >
               返 回
             </span>
+          </div> */}
+          {/* 特殊小鸟按钮 */}
+          <div className="button button--bird">
+            <div className="button__wrapper">
+              <span className="button__text">BACK</span>
+            </div>
+            {/* 有意思的三个小鸟 */}
+
+            <div className="birdBox">
+              <div className="bird wakeup">
+                <div className="bird__face"></div>
+              </div>
+              <div className="bird">
+                <div className="bird__face"></div>
+              </div>
+              <div className="bird wakeup">
+                <div className="bird__face"></div>
+              </div>
+            </div>
           </div>
         </Header>
         <Content style={{ height: 'calc( 100% - 100px)' }}>
