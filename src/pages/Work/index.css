@@ -1,0 +1,35 @@
+.work-page {
+  --base_color: #ea5514;
+  --white_color: #fff;
+  --e5_color: #e5e5e5;
+}
+
+.work-page {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: url('./images/background.png');
+  color: var(--base_color);
+  font-weight: bold;
+}
+
+.work-sider {
+  width: 250px !important;
+  border-right: 6px solid var(--white_color);
+  box-shadow: 2px 2px 2px var(--e5_color);
+}
+
+.sider-top {
+  height: 160px;
+  text-align: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.sider-bottom {
+  height: calc(100% - 200px);
+}
+
+.sider-bottom .ant-menu {
+  background-color: transparent !important;
+}
