@@ -1,17 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.6c700d4e.css",
-    "main.js": "./static/js/main.3155f54b.js",
+    "main.css": "./static/css/main.d882592e.css",
+    "main.js": "./static/js/main.33bb98ee.js",
     "static/js/787.a361b86b.chunk.js": "./static/js/787.a361b86b.chunk.js",
     "static/media/home_background.jpg": "./static/media/home_background.9c73208e8792d84ad19c.jpg",
+    "static/media/victoria.png": "./static/media/victoria.0dafb2698aac35928182.png",
+    "static/media/yan.png": "./static/media/yan.45783cc46e105dc93bc7.png",
     "static/media/background.png": "./static/media/background.c3a2c964e6558a5eb268.png",
+    "static/media/kazimierz.png": "./static/media/kazimierz.fabbc9c0c26edb0d621c.png",
+    "static/media/rhine.png": "./static/media/rhine.5fd3e98bf23cbe2ff373.png",
+    "static/media/rhodes2.png": "./static/media/rhodes2.7ea9c60346f6839a5518.png",
+    "static/media/chatGPT.png": "./static/media/chatGPT.38ed42760ee9c4ddc517.png",
     "index.html": "./index.html",
-    "main.6c700d4e.css.map": "./static/css/main.6c700d4e.css.map",
-    "main.3155f54b.js.map": "./static/js/main.3155f54b.js.map",
+    "static/media/vue.svg": "./static/media/vue.3d1cb915b9c429be2f8c.svg",
+    "main.d882592e.css.map": "./static/css/main.d882592e.css.map",
+    "main.33bb98ee.js.map": "./static/js/main.33bb98ee.js.map",
     "787.a361b86b.chunk.js.map": "./static/js/787.a361b86b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c700d4e.css",
-    "static/js/main.3155f54b.js"
+    "static/css/main.d882592e.css",
+    "static/js/main.33bb98ee.js"
   ]
 }
