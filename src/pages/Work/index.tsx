@@ -3,22 +3,41 @@
 import { useState } from 'react'
 import { Layout, Menu } from 'antd'
 import type { MenuProps } from 'antd'
-import { items } from './data'
+import { items, lyricsData } from './data'
+import ContentMap from './ContentMap'
 import './index.css'
+import CommonFooter from '../../components/Footer'
+import CommonHeader from '../../components/Header'
 
 const { Header, Footer, Sider, Content } = Layout
 
-const WorkPage = () => {
-  const [pageType, setPageType] = useState<string | 'home'>('home')
+type WorkType = {
+  setHomePage: React.Dispatch<React.SetStateAction<any>>
+}
+const WorkPage = (props: WorkType) => {
+  const { setHomePage } = props
+  const [pageType, setPageType] = useState<any>('home')
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e)
     setPageType(e.key)
+  }
+
+  const getContent = (type: keyof typeof ContentMap) => {
+    const result = ContentMap[type]
+    return result
   }
   return (
     <div className="work-page">
       <Layout>
         <Sider className="work-sider" width={250}>
-          <div className="sider-top">好好工作，努力拼搏</div>
+          <div
+            className="sider-top"
+            onClick={() => {
+              // work的home
+              setPageType('home')
+            }}
+          >
+            好好工作，努力拼搏
+          </div>
           <div className="sider-bottom">
             <Menu onClick={onClick} mode="inline" items={items} />
           </div>
@@ -26,12 +45,40 @@ const WorkPage = () => {
         <Layout>
           {pageType === 'home' ? (
             <>
-              <Header>Header</Header>
-              <Content>Content</Content>
-              <Footer>Footer</Footer>
+              <Header>
+                <CommonHeader
+                  setPageType={() => {
+                    // 博客首页
+                    setHomePage(null)
+                  }}
+                />
+              </Header>
+              <Content
+                className="work-home-content"
+                style={{
+                  boxSizing: 'border-box',
+                  marginTop: '85px',
+                  textAlign: 'center',
+                  overflowY: 'scroll',
+                }}
+              >
+                <div style={{ borderTop: '4px solid #fff' }}>
+                  {lyricsData.map((item) => {
+                    return (
+                      <div style={{ lineHeight: '34px', letterSpacing: '4px' }}>
+                        {item}
+                      </div>
+                    )
+                  })}
+                </div>
+
+                <div style={{ borderTop: '4px solid #fff' }}>
+                  <CommonFooter />
+                </div>
+              </Content>
             </>
           ) : (
-            <div>展示文章详情</div>
+            getContent(pageType)
           )}
         </Layout>
       </Layout>

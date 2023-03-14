@@ -44,7 +44,7 @@ function App() {
       <div id="pointer-effect"></div>
       {/* 主页面 */}
       {!pageType && <HomePage setPageType={setPageType} />}
-      {pageType === 'work' && <WorkPage />}
+      {pageType === 'work' && <WorkPage setHomePage={setPageType}/>}
       {pageType === 'life' && <LifePage />}
       {pageType === 'me' && <IntroductionPage setPageType={setPageType} />}
     </div>

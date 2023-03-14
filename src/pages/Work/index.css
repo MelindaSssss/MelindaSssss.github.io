@@ -1,17 +1,64 @@
 .work-page {
+  /* 爱马仕橙 235, 92, 92 */
+  /* --base_color: rgb(235, 92, 92); */
   --base_color: #ea5514;
+
   --white_color: #fff;
   --e5_color: #e5e5e5;
+  --hover_color: blue;
 }
 
 .work-page {
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  background: url('./images/background.png');
+  /* background: url('./images/background.png'); */
+  background-image: url('./images/background.png');
   color: var(--base_color);
   font-weight: bold;
 }
+
+.work-home-content::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.work-home-content::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background-color: var(--base_color);
+  /* background-color: rgb(183, 183, 184); */
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.work-home-content::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
+
+/* .work-page::after {
+
+  content: '';
+  background-image: url('./images/background.png');
+  
+  opacity: 0.5;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */
 
 .work-sider {
   width: 250px !important;
@@ -32,4 +79,17 @@
 
 .sider-bottom .ant-menu {
   background-color: transparent !important;
+  color: var(--base_color) !important;
+}
+
+.sider-bottom .ant-menu-item-group {
+  color: var(--base_color) !important;
+}
+
+.sider-bottom .ant-menu .ant-menu-submenu-title:hover {
+  color: var(--hover_color) !important;
+}
+
+.sider-bottom .ant-menu .ant-menu-item:hover {
+  color: var(--hover_color) !important;
 }

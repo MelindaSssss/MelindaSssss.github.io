@@ -6,8 +6,9 @@
 
   /* 设置背景颜色渐变 Dust Red  */
 
-  background: pink; /* 针对不支持渐变的浏览器 */
-  background: -webkit-linear-gradient(
+  background: transparent;
+  /* background: pink; 针对不支持渐变的浏览器 */
+  /* background: -webkit-linear-gradient(
     left,
     #f0f0f0,
     #f5f5f5,
@@ -17,9 +18,9 @@
     #fafafa,
     #f5f5f5,
     #f0f0f0
-  );
+  ); */
   /*  Safari 5.1 到 6.0 */
-  background: -o-linear-gradient(
+  /* background: -o-linear-gradient(
     right,
     #f0f0f0,
     #f5f5f5,
@@ -29,9 +30,9 @@
     #fafafa,
     #f5f5f5,
     #f0f0f0
-  );
+  ); */
   /*  Opera 11.6 到 12.0 */
-  background: -moz-linear-gradient(
+  /* background: -moz-linear-gradient(
     right,
     #f0f0f0,
     #f5f5f5,
@@ -41,9 +42,9 @@
     #fafafa,
     #f5f5f5,
     #f0f0f0
-  );
+  ); */
   /*  Fx 3.6 到 15 */
-  background: linear-gradient(
+  /* background: linear-gradient(
     to right,
     #f0f0f0,
     #f5f5f5,
@@ -53,7 +54,7 @@
     #fafafa,
     #f5f5f5,
     #f0f0f0
-  );
+  ); */
   /* 标准语法（必须是最后一个） */
 
   display: flex;
