@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     // 处理鼠标跟随效果
     const body = document.querySelector('body')
-    const element = document.getElementById('pointer')
+    const element = document.getElementById('pointer-home')
     // const elementEffect = document.getElementById('pointer-effect')
 
     function setPosition(x: number, y: number) {
@@ -39,12 +39,12 @@ function App() {
     <div className="App">
       {/*  主页面 调整 鼠标跟随效果 */}
 
-      <div id="app"></div>
-      <div id="pointer"></div>
-      <div id="pointer-effect"></div>
+      <div id="app-home"></div>
+      <div id="pointer-home"></div>
+      <div id="pointer-effect-home"></div>
       {/* 主页面 */}
       {!pageType && <HomePage setPageType={setPageType} />}
-      {pageType === 'work' && <WorkPage setHomePage={setPageType}/>}
+      {pageType === 'work' && <WorkPage setHomePage={setPageType} />}
       {pageType === 'life' && <LifePage />}
       {pageType === 'me' && <IntroductionPage setPageType={setPageType} />}
     </div>

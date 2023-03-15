@@ -71,7 +71,7 @@ const ParticleCanvas = () => {
         // 粒子相对鼠标距离的比例 判断受到的力度比例
         let disPercent = Radius / distance
         // 设置阈值 避免粒子受到的斥力过大
-        disPercent = disPercent > 7 ? 7 : disPercent
+        disPercent = disPercent > 8 ? 8 : disPercent
         // 获得夹角值 正弦值 余弦值
         let angle = Math.atan2(dy, dx)
         let cos = Math.cos(angle)
@@ -305,7 +305,6 @@ const ParticleCanvas = () => {
         new LogoImg(require('../images/particle/' + keyArr[1]), result),
       )
     })
-
     setImgCache(cache)
     setLogoImgs(resultImgs)
   }
@@ -339,7 +338,6 @@ const ParticleCanvas = () => {
           border: '1px solid #614949',
         }}
       ></canvas>
-
       <div className="logo-options-container">
         {logoImgs.map((item, index) => {
           const imgSrc = imgCache[item.name]
@@ -360,7 +358,7 @@ const ParticleCanvas = () => {
                 width={200}
                 height={200}
               />
-              <div className="item-desc">{item.name}</div>
+              {/* <div className="item-desc">{item.name}</div> */}
             </div>
           )
         })}

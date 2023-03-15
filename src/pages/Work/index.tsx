@@ -9,7 +9,7 @@ import './index.css'
 import CommonFooter from '../../components/Footer'
 import CommonHeader from '../../components/Header'
 
-const { Header, Footer, Sider, Content } = Layout
+const { Header, Sider, Content } = Layout
 
 type WorkType = {
   setHomePage: React.Dispatch<React.SetStateAction<any>>
@@ -27,7 +27,7 @@ const WorkPage = (props: WorkType) => {
   }
   return (
     <div className="work-page">
-      <Layout>
+      <Layout style={{ width: '100%', height: '100%' }}>
         <Sider className="work-sider" width={250}>
           <div
             className="sider-top"
@@ -42,7 +42,8 @@ const WorkPage = (props: WorkType) => {
             <Menu onClick={onClick} mode="inline" items={items} />
           </div>
         </Sider>
-        <Layout>
+        <Layout style={{ width: '100%', height: '100%' }}>
+          {/* <Layout style={{ boxSizing: 'border-box', padding: '16px' }}> */}
           {pageType === 'home' ? (
             <>
               <Header>
@@ -78,7 +79,16 @@ const WorkPage = (props: WorkType) => {
               </Content>
             </>
           ) : (
-            getContent(pageType)
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                padding: '16px',
+                overflowY: 'scroll',
+              }}
+            >
+              {getContent(pageType)}
+            </div>
           )}
         </Layout>
       </Layout>

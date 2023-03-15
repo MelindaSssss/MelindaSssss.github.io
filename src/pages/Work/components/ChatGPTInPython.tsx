@@ -35,9 +35,17 @@ const ChatGPTInPython = () => {
     <div>
       <p>默认大家都会python</p>
       <p>第一步</p>
-      <OmsSyntaxHighlight textContent={step_one} language="python" />
+      <OmsSyntaxHighlight
+        textContent={step_one}
+        language="python"
+        darkMode={false}
+      />
       <p>第二步</p>
-      <OmsSyntaxHighlight textContent={step_two} language="python" />
+      <OmsSyntaxHighlight
+        textContent={step_two}
+        language="python"
+        darkMode={false}
+      />
       <p>第三步</p>
       <div>
         <img

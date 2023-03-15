@@ -68,6 +68,7 @@ const items: MenuProps['items'] = [
   // ),
   getItem('有意思的CSS', 'css', <HeartFilled />, [
     getItem('粒子动画', 'particle-canvas'),
+    getItem('粒子动画代码实现说明', 'particle-canvas-essay'),
   ]),
 ]
 

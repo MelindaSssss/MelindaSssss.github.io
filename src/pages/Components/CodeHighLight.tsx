@@ -5,6 +5,7 @@ import {
   vscDarkPlus,
   coyWithoutShadows,
   darcula,
+  tomorrow,
   // @ts-ignore
 } from 'react-syntax-highlighter/dist/esm/styles/prism' // 代码高亮主题风格
 
@@ -20,7 +21,8 @@ type tProps = {
 // npm install react-syntax-highlighter --save
 const them = {
   dark: vscDarkPlus,
-  light: coyWithoutShadows,
+  light: tomorrow,
+  // light: coyWithoutShadows,
 }
 
 const OmsSyntaxHighlight = (props: tProps) => {
@@ -34,7 +36,7 @@ const OmsSyntaxHighlight = (props: tProps) => {
   return (
     <SyntaxHighlighter
       showLineNumbers={true} // 是否展示左侧行数
-      lineNumberStyle={{ color: '#ddd', fontSize: 10 }} // 左侧行数的样式
+      lineNumberStyle={{ color: '#ddd', fontSize: 10, lineHeight: '28px' }} // 左侧行数的样式
       style={darkMode ? them.dark : them.light} // 主题风格
       language={language} // 需要语言类型 如css, jsx , javascript 等
       PreTag="div"

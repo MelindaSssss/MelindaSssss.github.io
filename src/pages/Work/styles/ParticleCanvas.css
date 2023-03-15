@@ -1,3 +1,53 @@
+/* #pointer {
+  transform: translate3d(-50%, -50%, 0px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  transition-property: opacity, background-color, left, top, width, height;
+  transition-duration: 0.3s, 0.3s, 0.1s, 0.1s, 0.3s, 0.3s;
+  z-index: 2;
+  pointer-events: none;
+}
+#pointer.hidden {
+  opacity: 0;
+}
+#pointer.hover {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#pointer-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border: 4px solid #ccc;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0px) scale(1);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+@keyframes effect {
+  0% {
+    transform: translate3d(-50%, -50%, 0px) scale(0.1);
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0px) scale(1);
+    opacity: 0;
+  }
+} */
+
 .logo-options-container {
   padding: 10px;
   width: 100%;
@@ -49,4 +99,27 @@
   color: #eee;
   text-transform: capitalize;
   text-align: center;
+}
+
+.need-font-bold {
+  font-weight: bold !important;
+}
+
+.need-bgColor-pink {
+  background: #fff7f7 !important;
+  color: #f06 !important;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+ol li,
+ul li {
+  line-height: 28px;
+}
+
+.particle-essay-page {
+  /* 粒子文章的样式 */
+}
+.particle-essay-page p {
+  text-indent: 32px;
 }
