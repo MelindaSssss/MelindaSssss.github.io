@@ -18,7 +18,8 @@ const ParticleCanvas = () => {
   /** 中心影响的半径 */
   const Radius = 40
   /** 排斥/吸引 力度 */
-  const Inten = 1.5
+  // 这个值翻译成白话文 就是 值越大 鼠标划过的时候粒子距离鼠标越远  排斥力越大
+  const Inten = 2
 
   /** 粒子类 */
   class Particle {
@@ -149,6 +150,7 @@ const ParticleCanvas = () => {
                           每四个数组元素代表了一个像素点的RGBA信息，每个元素数值介于0~255
         */
         const imgData = tmp_ctx?.getImageData(0, 0, imgW, imgH).data // 获取像素点数据
+        // 在给定的矩形内清除指定的像素
         tmp_ctx?.clearRect(0, 0, canvasOriginWidth, canvasOriginHeight)
 
         // 筛选像素点
@@ -161,8 +163,11 @@ const ParticleCanvas = () => {
             const g = imgData![index + 1]
             const b = imgData![index + 2]
             const a = imgData![index + 3]
+
+            console.info('rgba', r, g, b, a)
             const sum = r + g + b + a
             // 筛选条件
+            //  三个加起来大于一百 基本上就等于黑色  ≈ 这里有粒子
             if (sum >= 100) {
               const particle = new Particle(x, y, animateTime, [r, g, b, a])
               this.particleData.push(particle)
