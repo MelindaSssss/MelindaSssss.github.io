@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.89f71dc1.css",
-    "main.js": "./static/js/main.0e23abe0.js",
+    "main.css": "./static/css/main.78eec682.css",
+    "main.js": "./static/js/main.1300bf8d.js",
     "static/js/787.a361b86b.chunk.js": "./static/js/787.a361b86b.chunk.js",
     "static/media/home_background.jpg": "./static/media/home_background.9c73208e8792d84ad19c.jpg",
     "static/media/victoria.png": "./static/media/victoria.0dafb2698aac35928182.png",
     "static/media/green.png": "./static/media/green.23c03560365bb165b746.png",
     "static/media/yan.png": "./static/media/yan.45783cc46e105dc93bc7.png",
     "static/media/background.png": "./static/media/background.c3a2c964e6558a5eb268.png",
+    "static/media/dark.jpg": "./static/media/dark.6e11365772b438e28615.jpg",
     "static/media/kazimierz.png": "./static/media/kazimierz.fabbc9c0c26edb0d621c.png",
     "static/media/rhine.png": "./static/media/rhine.5fd3e98bf23cbe2ff373.png",
     "static/media/rhodes2.png": "./static/media/rhodes2.7ea9c60346f6839a5518.png",
@@ -15,12 +16,12 @@
     "static/media/chatGPT.png": "./static/media/chatGPT.38ed42760ee9c4ddc517.png",
     "static/media/xiangxian.jpg": "./static/media/xiangxian.e27e4e8eedac4df8da70.jpg",
     "index.html": "./index.html",
-    "main.89f71dc1.css.map": "./static/css/main.89f71dc1.css.map",
-    "main.0e23abe0.js.map": "./static/js/main.0e23abe0.js.map",
+    "main.78eec682.css.map": "./static/css/main.78eec682.css.map",
+    "main.1300bf8d.js.map": "./static/js/main.1300bf8d.js.map",
     "787.a361b86b.chunk.js.map": "./static/js/787.a361b86b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.89f71dc1.css",
-    "static/js/main.0e23abe0.js"
+    "static/css/main.78eec682.css",
+    "static/js/main.1300bf8d.js"
   ]
 }
