@@ -490,9 +490,9 @@ const ParticleCanvasEssay = () => {
       </div>
 
       {/* 右边的定位bar */}
-      <div>
+      {/* <div>
         <AnchorPage nodeName="particle-essay-page" />
-      </div>
+      </div> */}
     </div>
   )
 }
