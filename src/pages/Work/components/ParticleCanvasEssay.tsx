@@ -1,7 +1,7 @@
 // import OmsViewMarkdown from '../../Components/MarkDown'
 // import { useEffect, useState } from 'react'
 import OmsSyntaxHighlight from '../../Components/CodeHighLight'
-import AnchorPage from '../../Components/Anchor'
+// import AnchorPage from '../../Components/Anchor'
 import unit8arraySrc from '../images/unit8array.jpg'
 import xiangxianSrc from '../images/xiangxian.jpg'
 import {

@@ -45,7 +45,7 @@ function App() {
       {/* 主页面 */}
       {!pageType && <HomePage setPageType={setPageType} />}
       {pageType === 'work' && <WorkPage setHomePage={setPageType} />}
-      {pageType === 'life' && <LifePage />}
+      {pageType === 'life' && <LifePage setHomePage={setPageType} />}
       {pageType === 'me' && <IntroductionPage setPageType={setPageType} />}
     </div>
   )

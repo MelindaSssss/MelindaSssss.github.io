@@ -66,30 +66,30 @@
   box-shadow: 2px 2px 2px var(--e5_color);
 }
 
-.sider-top {
+.work-page .sider-top {
   height: 160px;
   text-align: center;
   align-items: center;
   margin-top: 40px;
 }
 
-.sider-bottom {
+.work-page .sider-bottom {
   height: calc(100% - 200px);
 }
 
-.sider-bottom .ant-menu {
+.work-page .sider-bottom .ant-menu {
   background-color: transparent !important;
   color: var(--base_color) !important;
 }
 
-.sider-bottom .ant-menu-item-group {
+.work-page .sider-bottom .ant-menu-item-group {
   color: var(--base_color) !important;
 }
 
-.sider-bottom .ant-menu .ant-menu-submenu-title:hover {
+.work-page .sider-bottom .ant-menu .ant-menu-submenu-title:hover {
   color: var(--hover_color) !important;
 }
 
-.sider-bottom .ant-menu .ant-menu-item:hover {
+.work-page .sider-bottom .ant-menu .ant-menu-item:hover {
   color: var(--hover_color) !important;
 }

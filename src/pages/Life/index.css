@@ -1,0 +1,72 @@
+:root {
+  --orange-main-color: #fd8c00;
+  --life-main-color: rgb(0, 115, 255);
+  --hover_color: blue;
+}
+
+
+
+/* 生活用红色 */
+.special-wrap-life {
+  /* width: 100%; */
+  /* height: 100%; */
+  overflow-y: auto;
+  background: url('./dark.jpg') no-repeat 0 0;
+  background-size: cover;
+  color: #fff;
+}
+.special-wrap-life::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.special-wrap-life::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background-color: var(--life-main-color);
+  /* background-color: #ff0033; */
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+/*  外层滑轨，滚动条的轨道（里面装有Thumb） */
+.special-wrap-life::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
+
+.special-wrap-life .sider-top {
+  height: 160px;
+  text-align: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.special-wrap-life .sider-bottom {
+  height: calc(100% - 200px);
+}
+
+.special-wrap-life .sider-bottom .ant-menu {
+  background-color: transparent !important;
+  color: var(--base_color) !important;
+}
+
+.special-wrap-life .sider-bottom .ant-menu-item-group {
+  color: var(--base_color) !important;
+}
+
+.special-wrap-life .sider-bottom .ant-menu .ant-menu-submenu-title:hover {
+  color: var(--hover_color) !important;
+}
+
+.special-wrap-life .sider-bottom .ant-menu .ant-menu-item:hover {
+  color: var(--hover_color) !important;
+}

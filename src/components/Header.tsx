@@ -3,13 +3,20 @@ import '../pages/Introduction/style.css'
 type HeaderType = {
   setPageType: React.Dispatch<React.SetStateAction<any>>
   title?: string
+  pageFrom?: string
 }
 const Header = (props: HeaderType) => {
-  const { setPageType, title } = props
+  const { setPageType, title, pageFrom } = props
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <h2> {title ? title : ':::::::::::::::'} </h2>
+        <h2
+          style={
+            pageFrom === 'life' ? { color: 'white' } : { color: 'inherit' }
+          }
+        >
+          {title ? title : ':::::::::::::::'}
+        </h2>
 
         {/* 特殊小鸟按钮 */}
         <div className="button button--bird" onClick={() => setPageType(null)}>
