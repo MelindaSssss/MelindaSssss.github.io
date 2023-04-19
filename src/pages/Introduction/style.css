@@ -55,16 +55,18 @@
   }
 }
 
-/* 自白书特殊样式 */
-.content-wrapper-pink {
-  /* border: 1px solid red; */
-  bottom: 10%;
-  right: 10%;
+.content-box {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+}
+.content-left {
   width: 500px;
-  height: 200px;
-  padding-left: 13.7rem;
-  padding-right: 3.6rem;
-  box-sizing: border-box;
+  height: 100%;
+}
+.content-right {
+  width: 300px;
+  height: 100%;
 }
 
 .content-wrapper-pink::before {
@@ -110,12 +112,21 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 280px;
 }
 
 .content-desc-pink {
   font-size: 16px;
+  line-height: 30px;
+}
+
+.content-right-inner {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 2px;
+  /* 一行放两列、两个auto */
+  grid-template-columns: auto auto;
+  /* background-color: palevioletred; */
+  padding: 16px;
 }
 
 /* bird button style */
@@ -529,4 +540,12 @@
     border-radius: 70px 70px 40px 40px / 48px 48px 30px 30px;
     /* border-radius: var(--border_radius2); */
   }
+}
+
+.main-introduction-box {
+  width: 800px;
+  margin: 10px auto;
+  box-shadow: 0 0 16px 0 rgba(255, 56, 56, 0.16);
+  /* box-shadow: 0 4px 8px 1px rgba(255, 56, 56, 0.16); */
+  font-size: 16px;
 }
