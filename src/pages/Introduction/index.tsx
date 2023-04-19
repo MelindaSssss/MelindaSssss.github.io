@@ -11,16 +11,11 @@ type IntroductionPageProps = {
   setPageType: React.Dispatch<React.SetStateAction<pageTypeProps>>
 }
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`
 const IntroductionPage = (props: IntroductionPageProps) => {
   const { setPageType } = props
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <div style={{ margin: '0 40px' }}>
+    <div className="introduction-page">
+      <div  className="introduction-page-content">
         {/* header */}
         <div
           className="header-box"

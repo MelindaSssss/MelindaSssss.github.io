@@ -46,19 +46,6 @@
   border-radius: 10px;
 }
 
-/* .work-page::after {
-
-  content: '';
-  background-image: url('./images/background.png');
-  
-  opacity: 0.5;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-} */
 
 .work-sider {
   width: 250px !important;
