@@ -1,3 +1,4 @@
+import { Tooltip } from 'antd'
 import { HeartFilled } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 
@@ -13,7 +14,11 @@ function getItem(
     key,
     icon,
     children,
-    label,
+    label: (
+      <Tooltip color="blue" title={label}>
+        <span>{label}</span>
+      </Tooltip>
+    ),
     type,
   } as MenuItem
 }
@@ -21,6 +26,7 @@ function getItem(
 const items: MenuProps['items'] = [
   getItem('Artificial Intelligence', 'ai-parent', <HeartFilled />, [
     getItem('ChatGPTInPython', 'chatgpt-1'),
+    getItem('Convolutional Neural Networks', 'basic-nn'),
   ]),
   getItem('有意思的CSS', 'css', <HeartFilled />, [
     getItem('粒子动画', 'particle-canvas'),

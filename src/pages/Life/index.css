@@ -2,9 +2,8 @@
   --orange-main-color: #fd8c00;
   --life-main-color: rgb(0, 115, 255);
   --hover_color: blue;
+  --hover_white_color: white;
 }
-
-
 
 /* 生活用红色 */
 .special-wrap-life {
@@ -64,9 +63,9 @@
 }
 
 .special-wrap-life .sider-bottom .ant-menu .ant-menu-submenu-title:hover {
-  color: var(--hover_color) !important;
+  color: var(--hover_white_color) !important;
 }
 
 .special-wrap-life .sider-bottom .ant-menu .ant-menu-item:hover {
-  color: var(--hover_color) !important;
+  color: var(--hover_white_color) !important;
 }
