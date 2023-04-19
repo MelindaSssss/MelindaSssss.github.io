@@ -49,9 +49,9 @@ h6 {
 }
 
 /* 鼠标跟随效果 */
-* {
+/* * {
   cursor: url(./assets/images/mouse.png) 4 4, default;
-}
+} */
 
 /* 返回按钮样式调整 */
 

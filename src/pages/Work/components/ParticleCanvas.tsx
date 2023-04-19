@@ -164,8 +164,6 @@ const ParticleCanvas = () => {
             const g = imgData![index + 1]
             const b = imgData![index + 2]
             const a = imgData![index + 3]
-
-            console.info('rgba', r, g, b, a)
             const sum = r + g + b + a
             // 筛选条件
             //  三个加起来大于一百 基本上就等于黑色  ≈ 这里有粒子

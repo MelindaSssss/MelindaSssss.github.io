@@ -41,7 +41,7 @@
   }
 }
 
-#pointer-home {
+/* #pointer-home {
   transform: translate3d(-50%, -50%, 0px);
   position: fixed;
   top: 0;
@@ -89,4 +89,4 @@
     transform: translate3d(-50%, -50%, 0px) scale(1);
     opacity: 0;
   }
-}
+} */
