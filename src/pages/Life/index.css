@@ -7,18 +7,28 @@
 
 /* 生活用红色 */
 .special-wrap-life {
-  /* width: 100%; */
-  /* height: 100%; */
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
+  /* background: url('./dark.jpg'); */
+  /* background-size: cover; */
   background: url('./dark.jpg') no-repeat 0 0;
   background-size: cover;
   color: #fff;
+  font-weight: bold;
 }
-.special-wrap-life::-webkit-scrollbar {
+
+.life-inner {
+  /* width: 100%;
+  height: 100%; */
+  /* border: 4px solid red; */
+  overflow-y: auto;
+}
+.life-inner::-webkit-scrollbar {
   width: 10px;
   height: 1px;
 }
-.special-wrap-life::-webkit-scrollbar-thumb {
+.life-inner::-webkit-scrollbar-thumb {
   /*滚动条里面小方块*/
   border-radius: 10px;
   background-color: var(--life-main-color);
@@ -35,7 +45,7 @@
   );
 }
 /*  外层滑轨，滚动条的轨道（里面装有Thumb） */
-.special-wrap-life::-webkit-scrollbar-track {
+.life-inner::-webkit-scrollbar-track {
   /*滚动条里面轨道*/
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   background: #ededed;
@@ -61,11 +71,20 @@
 .special-wrap-life .sider-bottom .ant-menu-item-group {
   color: var(--base_color) !important;
 }
+.special-wrap-life .sider-bottom .ant-menu .ant-menu-submenu-title {
+  color: var(--hover_white_color) !important;
+}
 
 .special-wrap-life .sider-bottom .ant-menu .ant-menu-submenu-title:hover {
   color: var(--hover_white_color) !important;
 }
 
 .special-wrap-life .sider-bottom .ant-menu .ant-menu-item:hover {
+  color: var(--hover_white_color) !important;
+}
+
+/* 选中的项的背景色 */
+.special-wrap-life .ant-menu-light .ant-menu-item-selected {
+  background-color: darkblue !important;
   color: var(--hover_white_color) !important;
 }
