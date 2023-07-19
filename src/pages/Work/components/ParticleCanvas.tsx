@@ -329,7 +329,16 @@ const ParticleCanvas = () => {
   }, [])
 
   return (
-    <div style={{ width: '100%', height: '100%', background: '#000' }}>
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        background: '#000',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
       <canvas
         // @ts-ignore
         ref={canvasDom}

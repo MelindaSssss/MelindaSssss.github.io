@@ -35,6 +35,7 @@ const items: MenuProps['items'] = [
   getItem('工作随笔', 'workessay', <HeartFilled />, [
     // getItem('20230320', 'essay-20230320'),
     getItem('20221215', 'essay-20221215'),
+    getItem('20230719', 'essay-20230719'),
   ]),
 ]
 
