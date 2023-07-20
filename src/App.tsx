@@ -1,5 +1,5 @@
 /* eslint-disable no-new-func */
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import HomePage from './pages/Home'
 import WorkPage from './pages/Work'

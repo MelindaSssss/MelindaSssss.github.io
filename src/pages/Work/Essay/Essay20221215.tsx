@@ -1,4 +1,5 @@
 import OmsSyntaxHighlight from '../../Components/CodeHighLight'
+
 const code_1 = `
 /**
  *
