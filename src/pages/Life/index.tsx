@@ -25,7 +25,7 @@ const LifePage = (props: LifeType) => {
   }
   return (
     <div className="special-wrap-life">
-      <Layout className='life-inner'>
+      <Layout className="life-inner">
         <Sider
           // style={{
           //   overflow: 'auto',
@@ -51,7 +51,7 @@ const LifePage = (props: LifeType) => {
             <Menu onClick={onClick} mode="inline" items={items} />
           </div>
         </Sider>
-        <Layout style={{ width: '100%', height: '100%' }}>
+        <Layout style={{ width: '100%', height: '100%', color: 'lightblue' }}>
           {pageType === 'home' ? (
             <>
               <Header>

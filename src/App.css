@@ -90,3 +90,11 @@
     opacity: 0;
   }
 } */
+
+.common-content-line-height {
+  line-height: 32px;
+}
+
+.common-content-text-indent {
+  text-indent: 32px;
+}

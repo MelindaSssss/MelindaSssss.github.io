@@ -1,11 +1,3 @@
-.common-content-line-height {
-  line-height: 32px;
-}
-
-.common-content-text-indent {
-  text-indent: 32px;
-}
-
 /* flex 上下排版 */
 .common-flex-column-around {
   display: flex;
