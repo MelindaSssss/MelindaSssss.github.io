@@ -10,7 +10,8 @@ const getImgData = () => {
   //引入图片数据
   let cache = {}
   //@ts-ignore
-  const context = require.context('./assets/', true, /\.png$/)
+  const context = require.context('./assets/', true, /.png$/)
+  
   context.keys().forEach((key: string | number) => {
     //@ts-ignore
     const keyArr = key.split('/')
