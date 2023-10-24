@@ -25,7 +25,7 @@ const LifePage = (props: LifeType) => {
   }
   return (
     <div className="special-wrap-life">
-      <Layout className="life-inner">
+      <Layout>
         <Sider
           // style={{
           //   overflow: 'auto',
@@ -51,7 +51,7 @@ const LifePage = (props: LifeType) => {
             <Menu onClick={onClick} mode="inline" items={items} />
           </div>
         </Sider>
-        <Layout style={{ width: '100%', height: '100%', color: 'white' }}>
+        <Layout className="life-inner">
           {pageType === 'home' ? (
             <>
               <Header>
@@ -71,6 +71,11 @@ const LifePage = (props: LifeType) => {
                   // overflowY: 'scroll',
                 }}
               >
+                <embed
+                  src="../../assets/musics/M500001Qbv2W1EcBrT.mp3"
+                  width="0"
+                  height="0"
+                ></embed>
                 <div style={{ borderTop: '4px solid #fff' }}>
                   {lyricsData.map((item) => {
                     return (
