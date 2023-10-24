@@ -51,7 +51,7 @@ const LifePage = (props: LifeType) => {
             <Menu onClick={onClick} mode="inline" items={items} />
           </div>
         </Sider>
-        <Layout style={{ width: '100%', height: '100%', color: 'lightblue' }}>
+        <Layout style={{ width: '100%', height: '100%', color: 'white' }}>
           {pageType === 'home' ? (
             <>
               <Header>

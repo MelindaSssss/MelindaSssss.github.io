@@ -22,6 +22,9 @@ const items: MenuProps['items'] = [
   getItem('领袖用典', 'leader-talks', <HeartFilled />, [
     getItem('操其要于上', 'leader_one'),
   ]),
+  getItem('跟张点点的日常', 'dailylifewithdian', <HeartFilled />, [
+    getItem('克罗地亚', 'essay20231024'),
+  ]),
 ]
 
 // 歌词
